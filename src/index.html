@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+ 
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBL1jvqmfUhIC-V47nJG5tV4tvS32MRNgI",
+    authDomain: "redsocial-b8479.firebaseapp.com",
+    databaseURL: "https://redsocial-b8479.firebaseio.com",
+    projectId: "redsocial-b8479",
+    storageBucket: "redsocial-b8479.appspot.com",
+    messagingSenderId: "86865248039"
+  };
+  firebase.initializeApp(config);
+</script>
+    <title>Document</title>
+</head>
+<body>
+
+    Ingresa Correo: <input id="email"  type="email">
+    Ingresa Contraseña: <input id="password" type="password">
+    <input type="button" value="Registrar" onclick="registrar()">
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+
