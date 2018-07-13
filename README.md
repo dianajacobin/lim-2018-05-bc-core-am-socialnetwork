@@ -469,3 +469,29 @@ Otras:
 * [ ] Permite editar posts (in place).
 * [ ] Permite publicar y filtrar posts por público/yo.
 * [ ] Permite dar _like_ a los posts y llevar un conteo de ellos.
+-------------------------------------------------------------------------------------
+RED SOCIAL
+
+ **Definición del producto:**
+ 
+ La web Health Food, es una red social donde su objetivo principal es informar 
+ alimentos saludables para una dieta sana. En la web los usuarios podran:
+ - Registrarse y loguearse mediante un correo electrónico, Facebook o Google. 
+ - Sin embargo visitantes a la página podrán dar like a los post 
+
+ **Cuáles son los elementos básicos que tiene una red social.**
+
+
+
+ **Quiénes son los principales usuarios de producto.**
+ **Cómo descubriste las necesidades de los usuarios.**
+ **Qué problema resuelve el producto para estos usuarios.**
+ **Cuáles son los objetivos de estos usuarios en relación con el producto.**
+ **Cuáles son las principales funcionalidades del producto y cuál es su prioridad.**
+ **Cómo verificaste que el producto les está resolviendo sus problemas.**
+ **Cómo te asegurarás que estos usuarios usen este producto.**
+ **Benchmark de las principales redes sociales.**
+ **Resumen de entrevistas con usuarios.**
+ **Link/screenshots del prototipo de alta fidelidad.**
+ **Conclusiones de testing con el prototipo de alta fidelidad con usuarios.**
+ **Conclusiones de testing con el producto en HTML.**
