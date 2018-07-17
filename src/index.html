@@ -8,36 +8,47 @@
  
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBL1jvqmfUhIC-V47nJG5tV4tvS32MRNgI",
-    authDomain: "redsocial-b8479.firebaseapp.com",
-    databaseURL: "https://redsocial-b8479.firebaseio.com",
-    projectId: "redsocial-b8479",
-    storageBucket: "redsocial-b8479.appspot.com",
-    messagingSenderId: "86865248039"
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyDlyPsTR7Jo4y0aSUIipN_NooO8HtqJexY",
+    authDomain: "fir-c6242.firebaseapp.com",
+    databaseURL: "https://fir-c6242.firebaseio.com",
+    projectId: "fir-c6242",
+    storageBucket: "fir-c6242.appspot.com",
+    messagingSenderId: "482129686898"
   };
   firebase.initializeApp(config);
 </script>
-    <title>Document</title>
+    <title>Firebase</title>
 </head>
 <body>
-<div id="registroUsuario">
-    <h4>Registro de Usuario</h4>
-    Ingresa Correo: <input id="email"  type="email">
-    Ingresa Contraseña: <input id="password" type="password">
-    <input type="button" value="Registrarme" onclick="registrar()">
+<div id="login" class="hiden">
+    <p id="username"></p>
+    <!--<img id="photoURL" alt="">-->
+    <input type="button" id="btnLogout" value="Logout">
 </div>
 
-<div id="loginUsuario">
-        <h4>Ingreso de Usuario</h4>
-        Ingresa Correo: <input id="emailLogin"  type="email">
-        Ingresa Contraseña: <input id="passwordLogin" type="password">
-        <input type="button" value="Ingresar" onclick="ingresar()">
+<div id="logout">
+    <label for="email">Ingresa Email</label>
+    <input id="email"  type="email">
+    <br>
+    <label for="password">Ingresa Contraseña</label>
+    <input id="password"  type="password">
+
+    <input type= "button" id="btnRegistro" value="Registro">
+    <input type= "button" id="btnSignin" value="Signin"> 
+    <input type= "button" id="btnGoogle" value="Google"> 
+    <input type= "button" id="btnFacebook" value="Facebook">
 </div>
 
-<div id="contenido">
-   
+<!--Base de datos-->
+<div id="bd" class="hiden">
+    <textarea name= "Publicacion" id="post" cols="30" rows="10"></textarea>
+    <input type="button" value="Publicar" id="btnSave">
+</div>
+
+<div id="posts" class="hiden">
+    <h3>Post</h3>
 </div>
 <script src="data.js"></script>
 <script src="main.js"></script>
