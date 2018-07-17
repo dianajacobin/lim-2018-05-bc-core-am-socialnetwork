@@ -31,11 +31,11 @@ en los que le gustaría invertir:
 
 La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida.
 
-Alimentación y Nutrición aun cuando parecieran significar lo mismo, son conceptos diferentes.
+Alimentación y Nutrición aún cuando parecieran significar lo mismo, son conceptos diferentes.
 Los objetivos nutricionales tienen como finalidad promover la salud, reducir el riesgo de desarrollar patologías relacionadas con la alimentación y controlar enfermedades específicas causadas por una ingesta excesiva o insuficiente de ciertos alimentos.
-Para lograr tener una alimentación equilibrada debes incluir hidratos de carbono, proteínas, grasas, vitaminas y fibras. Cada uno de estos elementos es parte de la pirámide alimenticia, pero no todos deben ser consumidos en cantidades iguales.
-[_Pirámide Alimenticia_](https://do1pouckcwxot.cloudfront.net/mexico/uploads/2018/02/17162821/piramide1.jpg)
-con más de una vista (página), y en el que podamos leer y escribir datos.
+Para lograr tener una alimentación equilibrada debes incluir hidratos de carbono, proteínas, grasas, vitaminas y fibras. Cada uno de estos elementos es parte de la [_Pirámide Alimenticia_](https://do1pouckcwxot.cloudfront.net/mexico/uploads/2018/02/17162821/piramide1.jpg), pero no todos deben ser consumidos en cantidades iguales.
+
+
 
 Algunos objetivos específicos:
 
