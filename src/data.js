@@ -1,15 +1,23 @@
-const btnLogout = document.getElementById("btnLogout");
-const btnRegistro = document.getElementById("btnRegistro");
-const btnSignin = document.getElementById("btnSignin");
 const btnGoogle = document.getElementById("btnGoogle");
 const btnFacebook = document.getElementById("btnFacebook");
+
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const logout = document.getElementById("logout");
+const btnSignin = document.getElementById("btnSignin");
+
+const btnLogout = document.getElementById("btnLogout");
+const btnRegistro = document.getElementById("btnRegistro");
+
+
 const bd=document.getElementById("bd");
 const btnSave= document.getElementById("btnSave");
-const post = document.getElementById("post");
+
 const posts= document.getElementById("posts");
+const logout = document.getElementById("logout");
+
+
+const post = document.getElementById("post");
+
 
 
 window.onload = () => {
