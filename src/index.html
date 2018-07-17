@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
- 
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBL1jvqmfUhIC-V47nJG5tV4tvS32MRNgI",
-    authDomain: "redsocial-b8479.firebaseapp.com",
-    databaseURL: "https://redsocial-b8479.firebaseio.com",
-    projectId: "redsocial-b8479",
-    storageBucket: "redsocial-b8479.appspot.com",
-    messagingSenderId: "86865248039"
-  };
-  firebase.initializeApp(config);
-</script>
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDlyPsTR7Jo4y0aSUIipN_NooO8HtqJexY",
+            authDomain: "fir-c6242.firebaseapp.com",
+            databaseURL: "https://fir-c6242.firebaseio.com",
+            projectId: "fir-c6242",
+            storageBucket: "fir-c6242.appspot.com",
+            messagingSenderId: "482129686898"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <title>Firebase</title>
 </head>
 <body>
     <h4>Registro de Usuario</h4>
@@ -27,13 +29,54 @@
     Ingresa Contraseña: <input id="password" type="password">
     <input type="button" value="Registrar" onclick="registrar()">
 
-    <h4>Ingreso de Usuario</h4>
-    Ingresa Correo: <input id="email"  type="email">
-    Ingresa Contraseña: <input id="password" type="password">
-    <input type="button" value="Registrar" onclick="registrar()">
+        <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand">Navbar</a>
+                <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Correo Electrónico" aria-label="Search">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Contraseña" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ingresar</button>
+                </form>
+              </nav>
 
-<script src="data.js"></script>
-<script src="main.js"></script>
+              <img id="logo" src=" logoMeal.PNG"  class="img-thumbnail">
+             
+    <div id="login" class="hiden">
+        <p id="username"></p>
+        <!--<img id="photoURL" alt="">-->
+        <input type="button" id="btnLogout" value="Logout">
+    </div>
+
+    <div id="logout">
+        <label for="email">Ingresa Email</label>
+        <input id="email" type="email">
+        <br>
+        <label for="password">Ingresa Contraseña</label>
+        <input id="password" type="password">
+
+        <input type="button" id="btnRegistro" value="Registro">
+        <input type="button" id="btnSignin" value="Signin">
+        <input type="button" id="btnGoogle" value="Google">
+        <input type="button" id="btnFacebook" value="Facebook">
+    </div>
+
+        <!--Base de datos-->
+    <div id="bd" class="hiden">
+        <textarea name="Publicacion" id="post" cols="30" rows="10"></textarea>
+        <input type="button" value="Publicar" id="btnSave">
+    </div>
+
+    <div id="posts" class="hiden">
+        <h3>Post</h3>
+    </div>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
 </body>
-</html>
 
+</html>
