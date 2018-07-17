@@ -3,7 +3,6 @@ const registrar = () => {
     let email = document.getElementById('email').value,
     password = document.getElementById('password').value;
 
-    // FIREBASE
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( () => verificar() )
     .catch(function(error) {
@@ -14,11 +13,11 @@ const registrar = () => {
         console.log(errorMessage);
       });
 }
+
 //Login de Usuarios existentes  
 const ingresar = () => {
     let emailLogin = document.getElementById('emailLogin').value,
     passwordLogin = document.getElementById('passwordLogin').value;
-
     // FIREBASE
     firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).catch(function(error) {
         // Handle Errors here.
@@ -58,7 +57,7 @@ observador();
 
 // Usuario logeado ve el siguiente contenedor
 const show = (user) =>{
-let user = user;    
+var user = user;    
 let contenido = document.getElementById('contenido');
 if(user.emailVerified){
     contenido.innerHTML =`<p>Bienvenida!!</p>
@@ -80,7 +79,6 @@ const cerrar = () =>{
 //Envio de Mensaje de verificacion del usuario
 const verificar = () =>{
 var user = firebase.auth().currentUser;
-
 user.sendEmailVerification().then(function() {
   // Email sent.
   console.log('Enviado Correo ...');
