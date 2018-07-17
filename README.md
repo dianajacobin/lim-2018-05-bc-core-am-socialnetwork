@@ -26,15 +26,20 @@ en los que le gustaría invertir:
 * Salud
 * Energías Renovables
 
-## Objetivos
 
-El objetivo principal de aprendizaje de este proyecto es construir un sitio web
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
+## Alimentación
+
+La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida.
+
+Alimentación y Nutrición aun cuando parecieran significar lo mismo, son conceptos diferentes.
+Los objetivos nutricionales tienen como finalidad promover la salud, reducir el riesgo de desarrollar patologías relacionadas con la alimentación y controlar enfermedades específicas causadas por una ingesta excesiva o insuficiente de ciertos alimentos.
+Para lograr tener una alimentación equilibrada debes incluir hidratos de carbono, proteínas, grasas, vitaminas y fibras. Cada uno de estos elementos es parte de la pirámide alimenticia, pero no todos deben ser consumidos en cantidades iguales.
+[_Pirámide Alimenticia_](https://do1pouckcwxot.cloudfront.net/mexico/uploads/2018/02/17162821/piramide1.jpg)
 con más de una vista (página), y en el que podamos leer y escribir datos.
 
 Algunos objetivos específicos:
 
-* Entender las necesidades de los usuarios para los que crearás el producto y que ayudarás a resolver.
+* Entender las necesidades de
 * Poner en juego tu creatividad para generar ideas que lleven a una solución original y valiosa del problema.
 * Cuentas con el apoyo de tus compañeras, debes trabajar en equipo buscando _feedback_ constante.
 
