@@ -24,7 +24,9 @@
 <body>
 <div id="login" class="hiden">
     <p id="username"></p>
-    <!--<img id="photoURL" alt="">-->
+    <div id='photoURL'>
+        <!--<img src=photoURL.value>-->
+    </div>
     <input type="button" id="btnLogout" value="Logout">
 </div>
 
@@ -43,8 +45,13 @@
 
 <!--Base de datos-->
 <div id="bd" class="hiden">
+    <label for="Publicar">Publicar</label>
     <textarea name= "Publicacion" id="post" cols="30" rows="10"></textarea>
-    <input type="button" value="Publicar" id="btnSave">
+    <input type="button" value="Compartir" id="btnSave">
+    <select name="Selecciona">
+            <option value="Público" selected>Público</option> 
+            <option value="Amigos">Amigos</option>
+          </select>
 </div>
 
 <div id="posts" class="hiden">

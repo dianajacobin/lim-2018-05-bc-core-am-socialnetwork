@@ -15,14 +15,19 @@ const posts= document.getElementById("posts");
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+            console.log('Inicio logueado');
+            console.log(user);
             login.classList.remove("hiden");
             bd.classList.remove("hiden");
             posts.classList.remove("hiden");
             logout.classList.add("hiden");
-            console.log('Inicio logueado');
-            console.log(user);
             username.innerHTML = `Bienvenida  ${user.displayName}`;
-            //photoURL.innerHTML = user.photoURL;
+            //photoURL = new photoURL();
+            photoURL.innerHTML =`<img src= user.photoURL.value>`;
+            //"http://subirimagen.me/uploads/20180717121119.jpg"
+           //https://graph.facebook.com/10209691428881959/picture
+            //`${user.photoURL}`.appendChild(photoURL);
+
         } else {
             console.log('No está logueado')
             login.classList.add("hiden");
@@ -111,7 +116,7 @@ function writeUserData(userId, name, email, imageURL){
     firebase.database().ref('users/' + userId).set({
         username: name,
         email: email,
-        profile_picture: imageURL
+        profile_picture: imageURL,
     });
 }
 
@@ -134,8 +139,23 @@ function writeNewPost(uid, body){
 }
 
 btnSave.addEventListener('click', ()=>{
+    //userId va a capturar los usuarios logueados
     var userId = firebase.auth().currentUser.uid;
-    const newPost = writeNewPost(userId, post.value);
+    var userNom = firebase.auth().currentUser.displayName;
+  
+    //newpost ...al crear post me genera un key en firebase, retorna y asigno al usuario
+    const newPost = writeNewPost(userId, post.value, userNom);
+   console.log(userNom); 
+
+    //imprimiendo en DOM
+    var logo = document.createElement("img");
+    logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
+    
+
+
+    var nomUsuario = document.createElement("label");
+    nomUsuario.setAttribute("for", "");
+    nomUsuario.setAttribute("type", "label");
 
     var btnUpdate = document.createElement("input");
     btnUpdate.setAttribute("value", "Update");
@@ -144,10 +164,12 @@ btnSave.addEventListener('click', ()=>{
     btnDelete.setAttribute("value","Delete");
     btnDelete.setAttribute("type","button");
     var contPost = document.createElement('div');
+    //var textPost = document.createElement('p');
     var textPost = document.createElement('textarea');
     textPost.setAttribute("id", newPost);
 
     textPost.innerHTML= post.value;
+    nomUsuario.innerHTML = userNom + "  publicó...";
 
     btnDelete.addEventListener('click', ()=>{
         //esto es en base de datos  
@@ -169,7 +191,8 @@ btnSave.addEventListener('click', ()=>{
         const nuevoPost ={
         body : newUpdate.value,
         };
-
+        
+        
         var updatesUser = {};
         var updatesPost = {};
 
@@ -178,7 +201,14 @@ btnSave.addEventListener('click', ()=>{
 
         firebase.database().ref().update(updatesUser);
         firebase.database().ref().update(updatesPost);
-    })
+    });
+
+    contPost.appendChild(logo);
+    contPost.appendChild(nomUsuario);
+    contPost.appendChild(textPost);
+    contPost.appendChild(btnUpdate);
+    contPost.appendChild(btnDelete);
+    posts.appendChild(contPost);
 })
 
 function reload_page(){
@@ -186,4 +216,3 @@ function reload_page(){
 }
 
 
-//1.48 video
