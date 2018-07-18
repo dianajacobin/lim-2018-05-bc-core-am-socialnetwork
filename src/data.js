@@ -15,7 +15,7 @@ const btnSave= document.getElementById("btnSave");
 const posts= document.getElementById("posts");
 const logout = document.getElementById("logout");
 
-
+const textarea = document.getElementById("textarea");
 const post = document.getElementById("post");
 
 
@@ -56,7 +56,7 @@ btnRegistro.addEventListener('click', () => {
         });
 })
 
-/*btnSignin.addEventListener('click', () => {
+btnSignin.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then(function () {
             console.log('Inicia Sesion')
@@ -64,7 +64,7 @@ btnRegistro.addEventListener('click', () => {
         .catch(function (error) {
             console.log(error.code, error.message)
         });
-})*/
+})
 
 btnLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
@@ -171,11 +171,15 @@ console.log(userNom);
  btnDelete.setAttribute("type","button");
  var contPost = document.createElement('div');
  //var textPost = document.createElement('p');
+
+
  var textPost = document.createElement('textarea');
  textPost.setAttribute("id", newPost);
+ 
 
  textPost.innerHTML= post.value;
  nomUsuario.innerHTML = userNom + "  publicó...";
+ textPost.disabled= true;
 
     btnDelete.addEventListener('click', ()=>{
         //esto es en base de datos  
@@ -193,8 +197,17 @@ console.log(userNom);
     });
 
     btnUpdate.addEventListener('click',()=>{
+        textPost.disabled= false;
+        btnUpdate.setAttribute("value", "Guardar");
+
+        
+
         const newUpdate = document.getElementById(newPost);
+
+        //alert("El post ha sido modificado correctamente");
+        
         const nuevoPost ={
+       
         body : newUpdate.value,
         };
 
@@ -206,7 +219,10 @@ console.log(userNom);
 
         firebase.database().ref().update(updatesUser);
         firebase.database().ref().update(updatesPost);
+       
     })
+
+   
 
     //contPost.appendChild(logo);
     contPost.appendChild(nomUsuario);
@@ -214,6 +230,7 @@ console.log(userNom);
     contPost.appendChild(btnUpdate);
     contPost.appendChild(btnDelete);
     posts.appendChild(contPost);
+
 
     //var nomUsuario = document.createElement('style')
     //nomUsuario.innerHTML = "label {border: 2px solid black; background-color: blue;}";
@@ -223,6 +240,3 @@ console.log(userNom);
 function reload_page(){
     window.location.reload();
 }
-
-
-//1.48 video
