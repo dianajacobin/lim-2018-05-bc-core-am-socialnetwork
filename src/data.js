@@ -1,33 +1,39 @@
-const btnLogout = document.getElementById("btnLogout");
-const btnRegistro = document.getElementById("btnRegistro");
-const btnSignin = document.getElementById("btnSignin");
 const btnGoogle = document.getElementById("btnGoogle");
 const btnFacebook = document.getElementById("btnFacebook");
+
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const logout = document.getElementById("logout");
+const btnSignin = document.getElementById("btnSignin");
+
+const btnLogout = document.getElementById("btnLogout");
+const btnRegistro = document.getElementById("btnRegistro");
+
+
 const bd=document.getElementById("bd");
 const btnSave= document.getElementById("btnSave");
-const post = document.getElementById("post");
+
 const posts= document.getElementById("posts");
+const logout = document.getElementById("logout");
+
+const textarea = document.getElementById("textarea");
+const post = document.getElementById("post");
+
 
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            console.log('Inicio logueado');
-            console.log(user);
             login.classList.remove("hiden");
             bd.classList.remove("hiden");
             posts.classList.remove("hiden");
             logout.classList.add("hiden");
+            console.log('Inicio logueado');
+            console.log(user);
             username.innerHTML = `Bienvenida  ${user.displayName}`;
-            //photoURL = new photoURL();
-            photoURL.innerHTML =`<img src= user.photoURL.value>`;
+           // photoURL.innerHTML =`<img src= user.photoURL.value>`;
             //"http://subirimagen.me/uploads/20180717121119.jpg"
            //https://graph.facebook.com/10209691428881959/picture
             //`${user.photoURL}`.appendChild(photoURL);
-
         } else {
             console.log('No está logueado')
             login.classList.add("hiden");
@@ -139,37 +145,41 @@ function writeNewPost(uid, body){
 }
 
 btnSave.addEventListener('click', ()=>{
-    //userId va a capturar los usuarios logueados
-    var userId = firebase.auth().currentUser.uid;
-    var userNom = firebase.auth().currentUser.displayName;
-  
-    //newpost ...al crear post me genera un key en firebase, retorna y asigno al usuario
-    const newPost = writeNewPost(userId, post.value, userNom);
-   console.log(userNom); 
+ //userId va a capturar los usuarios logueados
+ var userId = firebase.auth().currentUser.uid;
+ var userNom = firebase.auth().currentUser.displayName;
 
-    //imprimiendo en DOM
-    var logo = document.createElement("img");
-    logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
-    
+ //newpost ...al crear post me genera un key en firebase, retorna y asigno al usuario
+ const newPost = writeNewPost(userId, post.value, userNom);
+console.log(userNom); 
+
+ //imprimiendo en DOM
+ //var logo = document.createElement("img");
+ //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
+ 
 
 
-    var nomUsuario = document.createElement("label");
-    nomUsuario.setAttribute("for", "");
-    nomUsuario.setAttribute("type", "label");
+ var nomUsuario = document.createElement("label");
+ nomUsuario.setAttribute("for", "");
+ nomUsuario.setAttribute("type", "label");
 
-    var btnUpdate = document.createElement("input");
-    btnUpdate.setAttribute("value", "Update");
-    btnUpdate.setAttribute("type", "button");
-    var btnDelete = document.createElement("input");
-    btnDelete.setAttribute("value","Delete");
-    btnDelete.setAttribute("type","button");
-    var contPost = document.createElement('div');
-    //var textPost = document.createElement('p');
-    var textPost = document.createElement('textarea');
-    textPost.setAttribute("id", newPost);
+ var btnUpdate = document.createElement("input");
+ btnUpdate.setAttribute("value", "Update");
+ btnUpdate.setAttribute("type", "button");
+ var btnDelete = document.createElement("input");
+ btnDelete.setAttribute("value","Delete");
+ btnDelete.setAttribute("type","button");
+ var contPost = document.createElement('div');
+ //var textPost = document.createElement('p');
 
-    textPost.innerHTML= post.value;
-    nomUsuario.innerHTML = userNom + "  publicó...";
+
+ var textPost = document.createElement('textarea');
+ textPost.setAttribute("id", newPost);
+ 
+
+ textPost.innerHTML= post.value;
+ nomUsuario.innerHTML = userNom + "  publicó...";
+ textPost.disabled= true;
 
     btnDelete.addEventListener('click', ()=>{
         //esto es en base de datos  
@@ -187,12 +197,20 @@ btnSave.addEventListener('click', ()=>{
     });
 
     btnUpdate.addEventListener('click',()=>{
+        textPost.disabled= false;
+        btnUpdate.setAttribute("value", "Guardar");
+
+        
+
         const newUpdate = document.getElementById(newPost);
+
+        //alert("El post ha sido modificado correctamente");
+        
         const nuevoPost ={
+       
         body : newUpdate.value,
         };
-        
-        
+
         var updatesUser = {};
         var updatesPost = {};
 
@@ -201,14 +219,22 @@ btnSave.addEventListener('click', ()=>{
 
         firebase.database().ref().update(updatesUser);
         firebase.database().ref().update(updatesPost);
-    });
+       
+    })
 
-    contPost.appendChild(logo);
+   
+
+    //contPost.appendChild(logo);
     contPost.appendChild(nomUsuario);
     contPost.appendChild(textPost);
     contPost.appendChild(btnUpdate);
     contPost.appendChild(btnDelete);
     posts.appendChild(contPost);
+
+
+    //var nomUsuario = document.createElement('style')
+    //nomUsuario.innerHTML = "label {border: 2px solid black; background-color: blue;}";
+//document.body.appendChild(nomUsuario);
 })
 
 function reload_page(){
@@ -216,3 +242,4 @@ function reload_page(){
 }
 
 
+//1.48 video
