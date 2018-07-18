@@ -45,7 +45,7 @@
         <input id="btnLogout" type="button" value="Logout">
     </div>
 
-    <aside>
+    <aside id="formulario">
         <div id="logout">
 
             <p>Si no tienes cuenta en
@@ -72,18 +72,26 @@
             <br>
             <input id="password" type="password" placeholder=" Contraseña...">
 
-            <input id="btnSignin" type="button" value="Crear Cuenta">
+            <input id="btnRegistro" type="button" value="Crear Cuenta">
         </div>
     </aside>
     <!--Base de datos-->
     <div id="bd" class="hiden">
+        <label for="Publicar">Publicar</label>
+        <br>
         <textarea name="Publicacion" id="post" cols="30" rows="10"></textarea>
-        <input id="btnSave" type="button" value="Publicar">
+        <br>
+        <input type="button" value="Compartir" id="btnSave">
+        <select id="sel" name="Selecciona">
+                <option value="Público" selected>Público</option> 
+                <option value="Amigos">Amigos</option>
+              </select>
+              <div id="posts" class="hiden">
+                    <u><h3>Publicaciones</h3></u>
+                </div>
+
     </div>
 
-    <div id="posts" class="hiden">
-        <h3>Post</h3>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
