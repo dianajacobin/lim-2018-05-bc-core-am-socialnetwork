@@ -55,7 +55,7 @@ btnRegistro.addEventListener('click', () => {
             console.log(error.code, error.message)
         });
 })
-
+/*
 btnSignin.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then(function () {
@@ -65,7 +65,7 @@ btnSignin.addEventListener('click', () => {
             console.log(error.code, error.message)
         });
 })
-
+*/
 btnLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
         console.log('Cerró sesión');
@@ -240,3 +240,6 @@ console.log(userNom);
 function reload_page(){
     window.location.reload();
 }
+
+
+//1.48 video
