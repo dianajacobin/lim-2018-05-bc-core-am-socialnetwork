@@ -240,6 +240,3 @@ console.log(userNom);
 function reload_page(){
     window.location.reload();
 }
-
-
-//1.48 video
