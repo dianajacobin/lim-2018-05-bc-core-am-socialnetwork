@@ -1,24 +1,22 @@
+//login de usuario existente
+const emailLogin = document.getElementById(' emailLogin');
+const passwordLogin = document.getElementById('passwordLogin');
+const btnLogin = document.getElementById('btnLogin');
+//Cerrar Sesion
+const btnLogout = document.getElementById("btnLogout");
+//Post
+const bd=document.getElementById("bd");
+const post = document.getElementById("post");
+const btnSave= document.getElementById("btnSave");
+//Registro de usuario nuevo
+const registerUser = document.getElementById("registerUser");
 const btnGoogle = document.getElementById("btnGoogle");
 const btnFacebook = document.getElementById("btnFacebook");
-
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const btnSignin = document.getElementById("btnSignin");
-
-const btnLogout = document.getElementById("btnLogout");
-const btnRegistro = document.getElementById("btnRegistro");
-
-
-const bd=document.getElementById("bd");
-const btnSave= document.getElementById("btnSave");
-
-const posts= document.getElementById("posts");
-const logout = document.getElementById("logout");
+const btnUp = document.getElementById("btnUp");
 
 const textarea = document.getElementById("textarea");
-const post = document.getElementById("post");
-
-
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -44,8 +42,7 @@ window.onload = () => {
     });
 }
 
-btnRegistro.addEventListener('click', () => {
-
+btnUp.addEventListener('click', () => {
     // Registrar Usuario FIREBASE
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(function () {
@@ -55,9 +52,9 @@ btnRegistro.addEventListener('click', () => {
             console.log(error.code, error.message)
         });
 })
-/*
-btnSignin.addEventListener('click', () => {
-    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+
+btnLogin.addEventListener('click', () => {
+    firebase.auth().signInWithEmailAndPassword(emailLoginl.value, passwordLogin.value)
         .then(function () {
             console.log('Inicia Sesion')
         })
@@ -65,7 +62,7 @@ btnSignin.addEventListener('click', () => {
             console.log(error.code, error.message)
         });
 })
-*/
+
 btnLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
         console.log('Cerró sesión');
@@ -89,14 +86,11 @@ btnGoogle.addEventListener('click', ()=>{
        //writeUserData recibe parametros 
        writeUserData(user.uid, user.displayName, user.email, user.photoURL);
       }).catch(function(error) {
-       
         console.log(error.code);
         console.log(error.message);
         console.log(error.email);
         console.log(error.credential);
-     
-      });
-
+        });
 })
 
 btnFacebook.addEventListener('click', ()=>{
@@ -112,11 +106,8 @@ btnFacebook.addEventListener('click', ()=>{
         console.log(error.message);
         console.log(error.email);
         console.log(error.credential);
-     
       });
-
 })
-
 
 function writeUserData(userId, name, email, imageURL){
     firebase.database().ref('users/' + userId).set({
@@ -139,8 +130,7 @@ function writeNewPost(uid, body){
     updates['/posts/' + newPostKey] = postData;
     //se almacenan post por usuario
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-    firebase.database().ref().update(updates);
+   firebase.database().ref().update(updates);
     return newPostKey;
 }
 
@@ -157,26 +147,22 @@ console.log(userNom);
  //var logo = document.createElement("img");
  //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
  
-
-
  var nomUsuario = document.createElement("label");
- nomUsuario.setAttribute("for", "");
- nomUsuario.setAttribute("type", "label");
+       nomUsuario.setAttribute("for", "");
+        nomUsuario.setAttribute("type", "label");
 
  var btnUpdate = document.createElement("input");
- btnUpdate.setAttribute("value", "Update");
- btnUpdate.setAttribute("type", "button");
+       btnUpdate.setAttribute("value", "Update");
+       btnUpdate.setAttribute("type", "button");
+
  var btnDelete = document.createElement("input");
- btnDelete.setAttribute("value","Delete");
- btnDelete.setAttribute("type","button");
+       btnDelete.setAttribute("value","Delete");
+       btnDelete.setAttribute("type","button");
+
  var contPost = document.createElement('div');
  //var textPost = document.createElement('p');
-
-
  var textPost = document.createElement('textarea');
  textPost.setAttribute("id", newPost);
- 
-
  textPost.innerHTML= post.value;
  nomUsuario.innerHTML = userNom + "  publicó...";
  textPost.disabled= true;
@@ -199,16 +185,11 @@ console.log(userNom);
     btnUpdate.addEventListener('click',()=>{
         textPost.disabled= false;
         btnUpdate.setAttribute("value", "Guardar");
-
-        
-
+      
         const newUpdate = document.getElementById(newPost);
-
-        //alert("El post ha sido modificado correctamente");
-        
+        //alert("El post ha sido modificado correctamente");     
         const nuevoPost ={
-       
-        body : newUpdate.value,
+               body : newUpdate.value,
         };
 
         var updatesUser = {};
@@ -242,4 +223,3 @@ function reload_page(){
 }
 
 
-//1.48 video
