@@ -27,9 +27,9 @@
     <nav id="navbar" class="navbar navbar-light bg-light">
         <a class="navbar-brand"></a>
         <form class="form-inline">
-            <input id="emaiLogin" class="form-control mr-sm-2" type="search" placeholder="Correo Electrónico" aria-label="Search">
+            <input id="emaiLogin" class="form-control mr-sm-2" type="email" placeholder="Correo Electrónico" aria-label="Search">
             <input id="passwordLogin" class="form-control mr-sm-2" type="password" placeholder="Contraseña" aria-label="Search">
-            <input id="btnLogin" type="button" class="btn btn-outline-success my-2 my-sm" value="Iniciar Sesión" >
+            <button id="btnLogin" type="button" class="btn btn-outline-success my-2 my-sm">Iniciar Sesión</button> 
         </form>
     </nav>
     <div id="imagen">
@@ -42,25 +42,25 @@
         <input id="btnLogout" type="button" value="Logout">
     </div>
     <aside id="formulario">
-           <!-- Registro de Usuario Nuevo -->
-        <div id="registerUser">
-             <!-- Contenedor de Post Base de datos-->
-      <div id="bd" class="hiden">
-            <label for="Publicar">Publicar</label>
-            <br>
-            <textarea  id="post" name="Publicacion"  cols="30" rows="10"></textarea>
-            <br>
-            <input id="btnSave" type="button" value="Compartir">
-            <select id="sel" name="Selecciona">
-                    <option value="Público" selected>Público</option> 
-                    <option value="Amigos">Amigos</option>
-             </select>
-             <div id="posts" class="hiden">
+        <!-- Contenedor de Post Base de datos-->
+        <div id="bd" class="hiden">
+                <label for="Publicar">Publicar</label>
                 <br>
-                 <u><h3>Publicaciones</h3></u>
-             </div>
+                <textarea  id="post" name="Publicacion"  cols="30" rows="10"></textarea>
+                <br>
+                <input id="btnSave" type="button" value="Compartir">
+                <select id="sel" name="Selecciona">
+                        <option value="Público" selected>Público</option> 
+                        <option value="Amigos">Amigos</option>
+                 </select>
+                 <div id="posts" class="hiden">
+                    <br>
+                     <u><h3>Publicaciones</h3></u>
+                 </div>
         </div>
-            <p>Si no tienes cuenta en </p>
+        <!-- Registro de Usuario Nuevo -->
+        <div id="registerUser">
+                 <p>Si no tienes cuenta en </p>
                 <img id="loguito" src="img/logoMeal.PNG" width="50px" height="40px">
             <input id="btnGoogle" type="button" value="Google">
             <input id="btnFacebook" type="button" value="Facebook">

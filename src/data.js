@@ -1,5 +1,5 @@
 //login de usuario existente
-const emailLogin = document.getElementById(' emailLogin');
+const emaiLogin = document.getElementById('emaiLogin');
 const passwordLogin = document.getElementById('passwordLogin');
 const btnLogin = document.getElementById('btnLogin');
 //Cerrar Sesion
@@ -16,7 +16,7 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const btnUp = document.getElementById("btnUp");
 
-const textarea = document.getElementById("textarea");
+//const textarea = document.getElementById("textarea");
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -24,7 +24,7 @@ window.onload = () => {
             login.classList.remove("hiden");
             bd.classList.remove("hiden");
             posts.classList.remove("hiden");
-            logout.classList.add("hiden");
+            registerUser.classList.add("hiden");
             console.log('Inicio logueado');
             console.log(user);
             username.innerHTML = `Bienvenida  ${user.displayName}`;
@@ -35,7 +35,7 @@ window.onload = () => {
         } else {
             console.log('No está logueado')
             login.classList.add("hiden");
-            logout.classList.remove("hiden");
+            registerUser.classList.remove("hiden");
             posts.classList.add("hiden");
             bd.classList.add("hiden");
         }
@@ -51,10 +51,11 @@ btnUp.addEventListener('click', () => {
         .catch(function (error) {
             console.log(error.code, error.message)
         });
+
 })
 
 btnLogin.addEventListener('click', () => {
-    firebase.auth().signInWithEmailAndPassword(emailLoginl.value, passwordLogin.value)
+    firebase.auth().signInWithEmailAndPassword(emaiLogin.value, passwordLogin.value)
         .then(function () {
             console.log('Inicia Sesion')
         })
@@ -67,7 +68,7 @@ btnLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
         console.log('Cerró sesión');
         login.classList.remove("hiden");
-        logout.classList.add("hiden");
+        registerUser.classList.add("hiden");
     })
         .catch(function (error) {
             console.log('Error al cerrar sesión');
