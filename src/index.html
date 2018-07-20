@@ -31,12 +31,12 @@
         <form class="form-inline">
             <input id="emaiLogeado" class="form-control mr-sm-2" type="search" placeholder="Correo Electrónico" aria-label="Search">
             <input id="passwordLogin" class="form-control mr-sm-2" type="search" placeholder="Contraseña" aria-label="Search">
-            <button id="btnInicioSesion" class="btn btn-outline-success my-2 my-sm-0" type="submit">Iniciar Sesión</button>
+            <button id="btnSignin" class="btn btn-outline-success my-2 my-sm-0" type="submit">Iniciar Sesión</button>
         </form>
     </nav>
 
     <div id="imagen">
-        <img id="logo" src="img/logoMeal.PNG" class="img-thumbnail">
+        <img id="logo" src=" logoMeal.PNG" class="img-thumbnail">
     </div>
 
     <div id="login" class="hiden">
@@ -46,10 +46,28 @@
     </div>
 
     <aside id="formulario">
+        <!--Base de datos-->
+        <div id="bd" class="hiden">
+            <label for="Publicar">Publicar</label>
+            <br>
+            <textarea name="Publicacion" id="post" cols="30" rows="10"></textarea>
+            <br>
+            <input type="button" value="Compartir" id="btnSave">
+            <select id="sel" name="Selecciona">
+                <option value="Público" selected>Público</option>
+                <option value="Amigos">Amigos</option>
+            </select>
+            <div id="posts" class="hiden">
+                <u>
+                    <h3>Publicaciones</h3>
+                </u>
+            </div>
+
+        </div>
         <div id="logout">
 
             <p>Si no tienes cuenta en
-                <img id="loguito" src="img/logoMeal.PNG" width="50px" height="40px">
+                <img id="loguito" src=" logoMeal.PNG" width="50px" height="40px">
             </p>
             <input id="btnGoogle" type="button" value="Google">
             <input id="btnFacebook" type="button" value="Facebook">
@@ -75,22 +93,7 @@
             <input id="btnRegistro" type="button" value="Crear Cuenta">
         </div>
     </aside>
-    <!--Base de datos-->
-    <div id="bd" class="hiden">
-        <label for="Publicar">Publicar</label>
-        <br>
-        <textarea name="Publicacion" id="post" cols="30" rows="10"></textarea>
-        <br>
-        <input type="button" value="Compartir" id="btnSave">
-        <select id="sel" name="Selecciona">
-                <option value="Público" selected>Público</option> 
-                <option value="Amigos">Amigos</option>
-         </select>
-         <div id="posts" class="hiden">
-             <u><h3>Publicaciones</h3></u>
-         </div>
 
-    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
