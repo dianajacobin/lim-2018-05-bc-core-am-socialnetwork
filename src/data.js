@@ -190,7 +190,7 @@ function writeNewPost(uid, body) {
 
 btnSave.addEventListener('click', () => {
 
-    if (post.val== " ") {
+    if (post.value.length==0 || post.value=="" ) {
         alert("Debes publicar al menos un caracter");
     }
     else {
@@ -207,7 +207,9 @@ btnSave.addEventListener('click', () => {
         //var logo = document.createElement("img");
         //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
 
-        addPost(newPost, post.value, userId, userNom);        
+        addPost(newPost, post.value, userId, userNom);   
+        
+        post.value= " ";
 
     }
 })
