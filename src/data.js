@@ -1,3 +1,39 @@
+/*
+Validaciones:
+
+No pueden haber usuarios repetidos.
+La cuenta de usuario debe ser un correo electrónico válido.
+
+Comportamiento:
+La aplicación solo permitirá el acceso a usuarios con cuentas válidas.
+
+Muro/timeline de la red social
+Validaciones:
+
+Al apretar el botón de publicar, debe validar que exista contenido en el input.
+
+Comportamiento:
+
+Falta que se almacenen los likes en el database de firebase
+Poder eliminar un post específico.
+Pedir confirmación antes de eliminar un post.
+Al darle guardar debe cambiar de vuelta a un texto normal pero con la información editada.(ya
+esta pero aumentar un tiempo para que se vea el cambio)
+Al recargar la página debo de poder ver los textos editados
+
+Otras consideraciones
+La aplicación no debe dejar hacer publicaciones vacías de ningún tipo.
+Al editar contenido, el contenido editado se verá automáticamente e inmediatamente después de guardar.
+Al recargar la página se deben poder ver los contenidos editados.
+
+Front end
+El corazón de este proyecto incluye:
+
+Separar la manipulación del DOM de la lógica (separación de responsabilidades).
+
+*/
+
+
 'use strict';
 
 const btnGoogle = document.getElementById("btnGoogle");
@@ -126,7 +162,7 @@ function writeUserData(userId, name, email, imageURL) {
         username: name,
         email: email,
         profile_picture: imageURL,
-            });
+    });
 }
 
 function writeNewPost(uid, body) {
@@ -135,7 +171,7 @@ function writeNewPost(uid, body) {
         body: body,
     };
 
-  
+
 
     var newPostKey = firebase.database().ref().child('posts').push().key;
 
@@ -145,29 +181,42 @@ function writeNewPost(uid, body) {
     updates['/posts/' + newPostKey] = postData;
     //se almacenan post por usuario
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-  
+
     firebase.database().ref().update(updates);
     return newPostKey;
 
-    
+
 }
 
 btnSave.addEventListener('click', () => {
-    //userId va a capturar los usuarios logueados
-    var userId = firebase.auth().currentUser.uid;
-    console.log(userId + "    Usuario logueado");
-    var userNom = firebase.auth().currentUser.displayName;
 
-    //newpost ...al crear post me genera un key en firebase, retorna y asigno al usuario
-    const newPost = writeNewPost(userId, post.value, userNom);
-    console.log(userNom);
+    if (post.val== " ") {
+        alert("Debes publicar al menos un caracter");
+    }
+    else {
+        //userId va a capturar los usuarios logueados
+        var userId = firebase.auth().currentUser.uid;
+        //console.log(userId + "    Usuario logueado");
+        var userNom = firebase.auth().currentUser.displayName;
 
-    //imprimiendo en DOM
-    //var logo = document.createElement("img");
-    //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
+        //newpost ...al crear post me genera un key en firebase, retorna y asigno al usuario
+        const newPost = writeNewPost(userId, post.value, userNom);
+        //console.log(userNom);
 
+        //imprimiendo en DOM
+        //var logo = document.createElement("img");
+        //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
 
+        addPost(newPost, post.value, userId, userNom);        
 
+    }
+})
+
+function reload_page() {
+    window.location.reload();
+}
+
+function addPost(newPost, post_value, userId, userNom){
     var nomUsuario = document.createElement("label");
     nomUsuario.setAttribute("for", "");
     nomUsuario.setAttribute("type", "label");
@@ -196,7 +245,7 @@ btnSave.addEventListener('click', () => {
     textPost.setAttribute("id", newPost);
 
 
-    textPost.innerHTML = post.value;
+    textPost.innerHTML = post_value;
     nomUsuario.innerHTML = userNom + "  publicó...";
     textPost.disabled = true;
 
@@ -234,47 +283,47 @@ btnSave.addEventListener('click', () => {
         user-posts: tiene id de user-posts
         dentro está el id de post que muestra
         mi mensaje y id de user-posts*/
-        
 
-        firebase.database().ref('posts').on('value', postsPublicados => {
-            const todosLosPost = postsPublicados.val();
-            console.log(todosLosPost)
-            const idsPosts = Object.keys(todosLosPost);
-            idsPosts.forEach( idDeunpost => {
-                const mostrandoUnpost = todosLosPost[idDeunpost];
-                //if (mostrandoUnpost = id del click eliminar)
-
-                console.log(mostrandoUnpost)
-            })
-            });
-      
         //esto es en base de datos  
-        //esta eliminando todos los post.. PERO SOLO QUIERO ELIMINAR EL QUE ELIJA  
         firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-        console.log(firebase.database().ref().child('/user-posts/' + userId + '/' + newPost))
         firebase.database().ref().child('posts/' + newPost).remove();
-        //para el html
-        //mientras haya un hijo en post, remueve
         //DOM
-        
-        //while (posts.firstChild) 
-        //posts.removeChild(posts.firstChild);
-       
 
-        while(posts.firstChild)
+        const dbRef = firebase.database().ref();
+        const userPostsRef = dbRef.child('user-posts');
+
+
+        userPostsRef.on("child_added", snap => {
+            let userPost = snap.val();
+            /*let $li = document.createElement("li");
+            $li.innerHTML = user.name;
+            $li.setAttribute("child-key", snap.key); 
+            $li.addEventListener("click", userClicked)
+            userListUI.append($li);*/
+            console.log("USER POST:")
+            console.log(userPost);
+           
+            addPost(userPost, userPost.body, userPost.uid, userNom);
+            
+         });
+
+         //elimina todos los posts solo en js
+         while(posts.firstChild)
         posts.removeChild(posts.firstChild);
-       
-         
-        alert('El usuario ha sido eliminado con éxito!');
-        
-    });
 
-    
+        alert('El usuario ha sido eliminado con éxito!');
+
+      
+         
+        
+        });
+
+
     btnUpdate.addEventListener('click', () => {
         textPost.disabled = false;
         btnUpdate.setAttribute("value", "Guardar");
 
-      
+
 
         const newUpdate = document.getElementById(newPost);
 
@@ -287,7 +336,7 @@ btnSave.addEventListener('click', () => {
 
         var updatesUser = {};
         var updatesPost = {};
-        
+
         updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
         updatesPost['/posts/' + newPost] = nuevoPost;
 
@@ -299,8 +348,6 @@ btnSave.addEventListener('click', () => {
 
     })
 
-
-
     //contPost.appendChild(logo);
     contPost.appendChild(nomUsuario);
     contPost.appendChild(textPost);
@@ -309,15 +356,4 @@ btnSave.addEventListener('click', () => {
     contPost.appendChild(btnLike);
     contPost.appendChild(cantLikes);
     posts.appendChild(contPost);
-
-
-    //var nomUsuario = document.createElement('style')
-    //nomUsuario.innerHTML = "label {border: 2px solid black; background-color: blue;}";
-    //document.body.appendChild(nomUsuario);
-})
-
-function reload_page() {
-    window.location.reload();
 }
-
-
