@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.4.1",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "name": "lim-2018-05-bc-core-am-socialnetwork",
+  "version": "1.0.0",
+  "description": "Red social",
+  "main": "data.js",
+  "repository": "https://github.com/RosemarieLopHu/lim-2018-05-bc-core-am-socialnetwork.git",
+  "author": "RosemarieLopezH <rosemarie61@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "eslint src test",
+    "test": "jest --coverage",
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --content-base dist/ --mode=development"
+  }
+}
