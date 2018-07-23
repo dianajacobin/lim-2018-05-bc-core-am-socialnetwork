@@ -1,30 +1,20 @@
 /*
 Validaciones:
 
-No pueden haber usuarios repetidos.
-La cuenta de usuario debe ser un correo electrónico válido.
+No pueden haber usuarios repetidos. (--)
 
 Comportamiento:
 La aplicación solo permitirá el acceso a usuarios con cuentas válidas.
 
-Muro/timeline de la red social
-Validaciones:
-
-Al apretar el botón de publicar, debe validar que exista contenido en el input.
 
 Comportamiento:
 
 Falta que se almacenen los likes en el database de firebase
 Poder eliminar un post específico.
-Pedir confirmación antes de eliminar un post.
 Al darle guardar debe cambiar de vuelta a un texto normal pero con la información editada.(ya
 esta pero aumentar un tiempo para que se vea el cambio)
 Al recargar la página debo de poder ver los textos editados
 
-Otras consideraciones
-La aplicación no debe dejar hacer publicaciones vacías de ningún tipo.
-Al editar contenido, el contenido editado se verá automáticamente e inmediatamente después de guardar.
-Al recargar la página se deben poder ver los contenidos editados.
 
 Front end
 El corazón de este proyecto incluye:
@@ -55,6 +45,9 @@ const logout = document.getElementById("logout");
 
 //const textarea = document.getElementById("textarea");
 const post = document.getElementById("post");
+
+
+
 
 
 
@@ -157,7 +150,6 @@ btnFacebook.addEventListener('click', () => {
 
 
 function writeUserData(userId, name, email, imageURL) {
-
     firebase.database().ref('users/' + userId).set({
         username: name,
         email: email,
@@ -190,12 +182,14 @@ function writeNewPost(uid, body) {
 
 btnSave.addEventListener('click', () => {
 
-    if (post.value.length==0 || post.value=="" ) {
+    if (post.value.length == 0 || post.value == "") {
         alert("Debes publicar al menos un caracter");
     }
     else {
+
         //userId va a capturar los usuarios logueados
         var userId = firebase.auth().currentUser.uid;
+        console.log(userId);
         //console.log(userId + "    Usuario logueado");
         var userNom = firebase.auth().currentUser.displayName;
 
@@ -207,9 +201,9 @@ btnSave.addEventListener('click', () => {
         //var logo = document.createElement("img");
         //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
 
-        addPost(newPost, post.value, userId, userNom);   
-        
-        post.value= " ";
+        addPost(newPost, post.value, userId, userNom);
+
+        post.value = " ";
 
     }
 })
@@ -218,17 +212,22 @@ function reload_page() {
     window.location.reload();
 }
 
-function addPost(newPost, post_value, userId, userNom){
+function addPost(newPost, post_value, userId, userNom) {
+    console.log(newPost);
+    console.log(post_value);
+    console.log(userId);
+    console.log(userNom);
     var nomUsuario = document.createElement("label");
     nomUsuario.setAttribute("for", "");
     nomUsuario.setAttribute("type", "label");
 
     var btnUpdate = document.createElement("input");
-    btnUpdate.setAttribute("value", "Update");
+    btnUpdate.setAttribute("value", "Modificar");
     btnUpdate.setAttribute("type", "button");
 
+
     var btnDelete = document.createElement("input");
-    btnDelete.setAttribute("value", "Delete");
+    btnDelete.setAttribute("value", "Eliminar");
     btnDelete.setAttribute("type", "button");
 
     var btnLike = document.createElement("input");
@@ -286,46 +285,54 @@ function addPost(newPost, post_value, userId, userNom){
         dentro está el id de post que muestra
         mi mensaje y id de user-posts*/
 
-        //esto es en base de datos  
-        firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-        firebase.database().ref().child('posts/' + newPost).remove();
-        //DOM
 
-        const dbRef = firebase.database().ref();
-        const userPostsRef = dbRef.child('user-posts');
+        if (window.confirm("¿Estás seguro de eliminar tu publicación?") == true) {
 
+            //esto es en base de datos  
+            firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+            firebase.database().ref().child('posts/' + newPost).remove();
+            //DOM
 
-        userPostsRef.on("child_added", snap => {
-            let userPost = snap.val();
-            /*let $li = document.createElement("li");
-            $li.innerHTML = user.name;
-            $li.setAttribute("child-key", snap.key); 
-            $li.addEventListener("click", userClicked)
-            userListUI.append($li);*/
-            console.log("USER POST:")
-            console.log(userPost);
-           
-            addPost(userPost, userPost.body, userPost.uid, userNom);
-            
-         });
-
-         //elimina todos los posts solo en js
-         while(posts.firstChild)
-        posts.removeChild(posts.firstChild);
-
-        alert('El usuario ha sido eliminado con éxito!');
-
-      
-         
-        
-        });
+            const dbRef = firebase.database().ref();
+            const userPostsRef = dbRef.child('user-posts');
 
 
-    btnUpdate.addEventListener('click', () => {
+            userPostsRef.on("child_added", snap => {
+                let userPost = snap.val();
+                /*let $li = document.createElement("li");
+                $li.innerHTML = user.name;
+                $li.setAttribute("child-key", snap.key); 
+                $li.addEventListener("click", userClicked)
+                userListUI.append($li);*/
+                console.log("USER POST:")
+                console.log(userPost);
+
+                //addPost(userPost, userPost.body, userPost.uid, userNom);
+
+            });
+
+            //elimina todos los posts solo en js
+            while (posts.firstChild)
+                posts.removeChild(posts.firstChild);
+
+            alert('El usuario ha sido eliminado con éxito!');
+
+        }
+        else {
+            alert("Se procedió a cancelar");
+        }
+
+
+    });
+
+
+    btnUpdate.addEventListener('onclick', () => {
+
         textPost.disabled = false;
+
         btnUpdate.setAttribute("value", "Guardar");
 
-
+      
 
         const newUpdate = document.getElementById(newPost);
 
@@ -338,7 +345,7 @@ function addPost(newPost, post_value, userId, userNom){
 
         var updatesUser = {};
         var updatesPost = {};
-
+        
         updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
         updatesPost['/posts/' + newPost] = nuevoPost;
 
@@ -347,7 +354,6 @@ function addPost(newPost, post_value, userId, userNom){
 
         firebase.database().ref().update(updatesUser);
         firebase.database().ref().update(updatesPost);
-
     })
 
     //contPost.appendChild(logo);
