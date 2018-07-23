@@ -32,16 +32,13 @@
             <button id="btnLogin" type="button" class="btn btn-outline-success my-2 my-sm">Iniciar Sesión</button> 
         </form>
     </nav>
-    <div id="imagen">
-        <img id="logo" src="img/logoMeal.PNG" class="img-thumbnail">
-    </div>
-    <!-- Contenedor de Sesion Iniciada  / Cerrar Sesion-->    <!-- -->
+        <!-- Contenedor de Sesion Iniciada  / Cerrar Sesion-->    <!-- -->
     <div id="login" class="hiden">
         <p id="username"></p>
         <!--<img id="photoURL" alt="">-->
         <input id="btnLogout" type="button" value="Logout">
     </div>
-    <aside id="formulario">
+    <form id="formulario">
         <!-- Contenedor de Post Base de datos-->
         <div id="bd" class="hiden">
                 <label for="Publicar">Publicar</label>
@@ -59,7 +56,7 @@
                  </div>
         </div>
         <!-- Registro de Usuario Nuevo -->
-        <div id="registerUser">
+        <form id="registerUser">
                  <p>Si no tienes cuenta en </p>
                 <img id="loguito" src="img/logoMeal.PNG" width="50px" height="40px">
             <input id="btnGoogle" type="button" value="Google">
@@ -75,11 +72,11 @@
                 <input id="inlineCheckbox2" class="form-check-input" type="checkbox" value="option2">
                 <label class="form-check-label" for="inlineCheckbox2">Mujer</label>
             </div>-->
-           <input id="email" type="email" placeholder=" Correo Electrónico...">
-           <input id="password" type="password" placeholder=" Contraseña...">
+           <input id="email" type="email" placeholder=" Correo Electrónico..." required>
+           <input id="password" type="password" placeholder=" Contraseña..."   required>
            <input id="btnUp" type="button" value="Crear Cuenta">
-        </div>
-    </aside>
+        </form>
+    </form  >
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

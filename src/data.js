@@ -17,6 +17,7 @@ const password = document.getElementById("password");
 const btnUp = document.getElementById("btnUp");
 
 //const textarea = document.getElementById("textarea");
+expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -44,6 +45,7 @@ window.onload = () => {
 
 btnUp.addEventListener('click', () => {
     // Registrar Usuario FIREBASE
+if((expresionCorreo.test(email.value))){
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(function () {
             console.log('Se creó el usuario')
@@ -51,7 +53,13 @@ btnUp.addEventListener('click', () => {
         .catch(function (error) {
             console.log(error.code, error.message)
         });
-
+         if (email.value ==''||password.value==''){
+         alert(' :( Por favor completa tu email y password para registrarte');
+    }    
+}
+    else {
+     alert('El correo electrónico no es valido'); 
+    }
 })
 
 btnLogin.addEventListener('click', () => {
@@ -62,6 +70,14 @@ btnLogin.addEventListener('click', () => {
         .catch(function (error) {
             console.log(error.code, error.message)
         });
+
+        if (emaiLogin.value ==''||passwordLogin.value==''){
+            alert(':( Por favor completa tu email y password para loguearte !!');
+        }
+        
+        else if (!expresionCorreo.test(emaiLogin.value)){
+            alert('El correo electrónico no es valido');    
+        }
 })
 
 btnLogout.addEventListener('click', () => {
