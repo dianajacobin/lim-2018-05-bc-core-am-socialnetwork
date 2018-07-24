@@ -22,10 +22,10 @@ expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            login.classList.remove("hiden");
+            registerUser.classList.add("hiden");
             bd.classList.remove("hiden");
             posts.classList.remove("hiden");
-            registerUser.classList.add("hiden");
+            login.classList.remove("hiden");       
             console.log('Inicio logueado');
             console.log(user);
             username.innerHTML = `Bienvenida  ${user.displayName}`;
@@ -34,17 +34,16 @@ window.onload = () => {
            //https://graph.facebook.com/10209691428881959/picture
             //`${user.photoURL}`.appendChild(photoURL);
         } else {
-            console.log('No está logueado')
-            login.classList.add("hiden");
+            console.log('No está logueado');
             registerUser.classList.remove("hiden");
+            login.classList.add("hiden");
             posts.classList.add("hiden");
             bd.classList.add("hiden");
         }
     });
 }
-
+//Registrar Usuario
 btnUp.addEventListener('click', () => {
-    // Registrar Usuario FIREBASE
 if((expresionCorreo.test(email.value))){
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(function () {
@@ -61,7 +60,7 @@ if((expresionCorreo.test(email.value))){
      alert('El correo electrónico no es valido'); 
     }
 })
-
+//Login de Usuario
 btnLogin.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword(emaiLogin.value, passwordLogin.value)
         .then(function () {
@@ -79,7 +78,7 @@ btnLogin.addEventListener('click', () => {
             alert('El correo electrónico no es valido');    
         }
 })
-
+//Cerrar Sesión 
 btnLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
         console.log('Cerró sesión');
@@ -90,7 +89,7 @@ btnLogout.addEventListener('click', () => {
             console.log('Error al cerrar sesión');
         })
 })
-
+//Login con Google
 btnGoogle.addEventListener('click', ()=>{
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({
@@ -109,7 +108,7 @@ btnGoogle.addEventListener('click', ()=>{
         console.log(error.credential);
         });
 })
-
+//Login con Facebook
 btnFacebook.addEventListener('click', ()=>{
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.setCustomParameters({
@@ -125,7 +124,7 @@ btnFacebook.addEventListener('click', ()=>{
         console.log(error.credential);
       });
 })
-
+//creacion de database 
 function writeUserData(userId, name, email, imageURL){
     firebase.database().ref('users/' + userId).set({
         username: name,
@@ -133,16 +132,17 @@ function writeUserData(userId, name, email, imageURL){
         profile_picture: imageURL,
     });
 }
-
+//creación de nuevo post
 function writeNewPost(uid, body){
+
     var postData = {
         uid: uid,
         body : body,
     };
 
     var newPostKey = firebase.database().ref().child('posts').push().key;
-
-    var updates ={};
+   // edita post
+    var updates ={ };
     //se almacenan posts
     updates['/posts/' + newPostKey] = postData;
     //se almacenan post por usuario
@@ -150,7 +150,7 @@ function writeNewPost(uid, body){
    firebase.database().ref().update(updates);
     return newPostKey;
 }
-
+// guarda cambios de edicion del post
 btnSave.addEventListener('click', ()=>{
  //userId va a capturar los usuarios logueados
  var userId = firebase.auth().currentUser.uid;
