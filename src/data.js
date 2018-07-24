@@ -186,63 +186,69 @@ btnSave.addEventListener('click', () => {
     }
 })
 
-function reload_page() {
-    window.location.reload();
-}
-// guarda cambios de edicion del post
-btnSave.addEventListener('click', () => {
-    //userId va a capturar los usuarios logueados
-    var userId = firebase.auth().currentUser.uid;
-    var userNom = firebase.auth().currentUser.displayName;
 
-    var cantLikes = document.createElement("label");
-    cantLikes.setAttribute("for", "");
-    cantLikes.setAttribute("type", "label");
 
-    //imprimiendo en DOM
-    //var logo = document.createElement("img");
-    //logo.setAttribute("src", "http://subirimagen.me/uploads/20180717121119.jpg");
-
+function addPost(newPost, post_value, userId, userNom) {
+    console.log(newPost);
+    console.log(post_value);
+    console.log(userId);
+    console.log(userNom);
     var nomUsuario = document.createElement("label");
     nomUsuario.setAttribute("for", "");
     nomUsuario.setAttribute("type", "label");
 
     var btnUpdate = document.createElement("input");
-    btnUpdate.setAttribute("value", "Update");
+    btnUpdate.setAttribute("value", "Modificar");
     btnUpdate.setAttribute("type", "button");
 
+
     var btnDelete = document.createElement("input");
-    btnDelete.setAttribute("value", "Delete");
+    btnDelete.setAttribute("value", "Eliminar");
     btnDelete.setAttribute("type", "button");
+
+    var btnLike = document.createElement("input");
+    btnLike.setAttribute("value", "Like");
+    btnLike.setAttribute("type", "button");
+
+    var cantLikes = document.createElement("label");
+    cantLikes.setAttribute("for", "");
+    cantLikes.setAttribute("type", "label");
 
     var contPost = document.createElement('div');
     //var textPost = document.createElement('p');
+
+
     var textPost = document.createElement('textarea');
     textPost.setAttribute("id", newPost);
-    textPost.innerHTML = post.value;
+
+
+    textPost.innerHTML = post_value;
     nomUsuario.innerHTML = userNom + "  publicó...";
     textPost.disabled = true;
 
-    if (userId = 0) {
-        console.log("Debe estar logueado");
-    }
-    else {
-        contador++;
-        if (contador == 1) {
-            cantLikes.innerText = contador;
+    var contador = 0;
+
+    btnLike.addEventListener('click', () => {
+
+        if (userId = 0) {
+            console.log("Debe estar logueado");
         }
         else {
-            alert("Solo puedes dar 1 like");
+            contador++;
+            if (contador == 1) {
+                cantLikes.innerText = contador;
+            }
+            else {
+                alert("Solo puedes dar 1 like");
+            }
+
         }
-
-    }
-
+    });
 
     btnDelete.addEventListener('click', () => {
 
         /*
         EN MI DATABASE DE FIREBASE
-    
         users: tiene h1XYr ... 
         es mi id -username claudia
         
@@ -301,15 +307,20 @@ btnSave.addEventListener('click', () => {
 
         btnUpdate.setAttribute("value", "Guardar");
 
+      
+
         const newUpdate = document.getElementById(newPost);
-        //alert("El post ha sido modificado correctamente");     
+
+        //alert("El post ha sido modificado correctamente");
+
         const nuevoPost = {
+
             body: newUpdate.value,
         };
 
         var updatesUser = {};
         var updatesPost = {};
-
+        
         updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
         updatesPost['/posts/' + newPost] = nuevoPost;
 
@@ -328,17 +339,9 @@ btnSave.addEventListener('click', () => {
     contPost.appendChild(btnLike);
     contPost.appendChild(cantLikes);
     posts.appendChild(contPost);
-
-
-
-});
-//var nomUsuario = document.createElement('style')
-//nomUsuario.innerHTML = "label {border: 2px solid black; background-color: blue;}";
-//document.body.appendChild(nomUsuario);
+}
 
 
 function reload_page() {
     window.location.reload();
 }
-
-
