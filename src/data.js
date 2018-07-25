@@ -18,6 +18,7 @@ const btnUp = document.getElementById("btnUp");
 
 //const textarea = document.getElementById("textarea");
 expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
+//if((expresionCorreo.test(email.value)))
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -42,26 +43,38 @@ window.onload = () => {
         }
     });
 }
+//Verificacion de correo
+const validation=()=>{
+    var user = firebase.auth().currentUser;
+   user.sendEmailVerification().then(function() {
+   // Email sent.
+       console.log('enviando correo');
+   }).catch(function(error) {
+   // An error happened.
+       console.log('error!');
+   });
+}
+
 //Registrar Usuario
 btnUp.addEventListener('click', () => {
-if((expresionCorreo.test(email.value))){
+
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-        .then(function (result) {
+        .then(
+            ()=>verification(),
+            (result)=> {
             console.log('Se creó el usuario')
             var user= result.user;
             //writeUserData recibe parametros 
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-        })
+            })
         .catch(function (error) {
             console.log(error.code, error.message)
         });
          if (email.value ==''||password.value==''){
          alert(' :( Por favor completa tu email y password para registrarte');
     }    
-}
-    else {
-     alert('El correo electrónico no es valido'); 
-    }
+
+   
 })
 //Login de Usuario
 btnLogin.addEventListener('click', () => {
@@ -112,6 +125,7 @@ btnGoogle.addEventListener('click', ()=>{
         console.log(error.credential);
         });
 })
+
 //Login con Facebook
 btnFacebook.addEventListener('click', ()=>{
     var provider = new firebase.auth.FacebookAuthProvider();
@@ -192,7 +206,7 @@ btnDelete.addEventListener('click', ()=>{
     //esta eliminando todos los post.. PERO SOLO QUIERO ELIMINAR EL QUE ELIJA  
     firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
     firebase.database().ref().child('posts/' +  newPost).remove();
-     //para el html
+     //para el html 
      //mientras haya un hijo en post, remueve
      //DOM
     // while(posts.firstChild) posts.removeChild(posts.firstChild);
