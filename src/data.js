@@ -43,25 +43,23 @@ window.onload = () => {
         }
     });
 }
+
 //Verificacion de correo
 const validation=()=>{
     var user = firebase.auth().currentUser;
    user.sendEmailVerification().then(function() {
-   // Email sent.
        console.log('enviando correo');
    }).catch(function(error) {
-   // An error happened.
        console.log('error!');
    });
 }
 
 //Registrar Usuario
 btnUp.addEventListener('click', () => {
-
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(
-            ()=>verification(),
-            (result)=> {
+                (result)=> {
+                ()=>validation(),
             console.log('Se creó el usuario')
             var user= result.user;
             //writeUserData recibe parametros 
@@ -115,7 +113,9 @@ btnGoogle.addEventListener('click', ()=>{
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
        console.log('Sesión con Google')
+       console.log(result);
        var user= result.user;
+       console.log(user);
        //writeUserData recibe parametros 
        writeUserData(user.uid, user.displayName, user.email, user.photoURL);
       }).catch(function(error) {
@@ -168,7 +168,9 @@ function writeNewPost(uid, body){
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
    firebase.database().ref().update(updates);
     return newPostKey;
+    console.log(newPostKey);
 }
+
 // guarda cambios de edicion del post
 btnSave.addEventListener('click', ()=>{
  //userId va a capturar los usuarios logueados
@@ -209,7 +211,7 @@ btnDelete.addEventListener('click', ()=>{
      //para el html 
      //mientras haya un hijo en post, remueve
      //DOM
-    // while(posts.firstChild) posts.removeChild(posts.firstChild);
+     while(posts.firstChild) posts.removeChild(posts.firstChild);
     // alert('El usuario ha sido eliminado con éxito!');
     // reload_page();
     });
