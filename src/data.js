@@ -18,23 +18,25 @@ const btnUp = document.getElementById("btnUp");
 
 //const textarea = document.getElementById("textarea");
 expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
-//if((expresionCorreo.test(email.value)))
+//if(expresionCorreo.test(email.value))
 
 window.onload = () => {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            registerUser.classList.add("hiden");
-            bd.classList.remove("hiden");
-            posts.classList.remove("hiden");
-            login.classList.remove("hiden");       
-            console.log('Inicio logueado');
-            console.log(user);
-            username.innerHTML = `Bienvenida  ${user.displayName}`;
-           // photoURL.innerHTML =`<img src= user.photoURL.value>`;
-            //"http://subirimagen.me/uploads/20180717121119.jpg"
-           //https://graph.facebook.com/10209691428881959/picture
-            //`${user.photoURL}`.appendChild(photoURL);
-        } else {
+        firebase.auth().onAuthStateChanged(function (user) {
+        if (user.sendEmailVerification()) {
+                    registerUser.classList.add("hiden");
+                    bd.classList.remove("hiden");
+                    posts.classList.remove("hiden");
+                    login.classList.remove("hiden");       
+                    console.log('Inicio logueado');
+                    console.log(user);
+                    username.innerHTML = `Bienvenida  ${user.displayName}`;
+            // photoURL.innerHTML =`<img src= user.photoURL.value>`;
+                //"http://subirimagen.me/uploads/20180717121119.jpg"
+            //https://graph.facebook.com/10209691428881959/picture
+                //`${user.photoURL}`.appendChild(photoURL);
+                }
+
+        else {
             console.log('No está logueado');
             registerUser.classList.remove("hiden");
             login.classList.add("hiden");
@@ -44,7 +46,7 @@ window.onload = () => {
     });
 }
 
-//Verificacion de correo
+/*//Verificacion de correo
 const validation=()=>{
     var user = firebase.auth().currentUser;
    user.sendEmailVerification().then(function() {
@@ -52,14 +54,14 @@ const validation=()=>{
    }).catch(function(error) {
        console.log('error!');
    });
-}
+}*/
 
 //Registrar Usuario
 btnUp.addEventListener('click', () => {
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(
                 (result)=> {
-                ()=>validation(),
+                
             console.log('Se creó el usuario')
             var user= result.user;
             //writeUserData recibe parametros 
@@ -71,11 +73,11 @@ btnUp.addEventListener('click', () => {
          if (email.value ==''||password.value==''){
          alert(' :( Por favor completa tu email y password para registrarte');
     }    
-
-   
 })
 //Login de Usuario
 btnLogin.addEventListener('click', () => {
+
+    if(expresionCorreo.test(email.value))
     firebase.auth().signInWithEmailAndPassword(emaiLogin.value, passwordLogin.value)
         .then(function () {
             console.log('Inicia Sesion')
