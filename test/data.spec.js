@@ -1,4 +1,4 @@
-var firebasemock    = require('firebase-mock');
+/* var firebasemock    = require('firebase-mock');
 
 var mockauth = new firebasemock.MockAuthentication();
 var mockdatabase = new firebasemock.MockFirebase();
@@ -28,4 +28,8 @@ var mocksdk = new firebasemock.MockFirebaseSdk(
 describe((email, password) => {
     
 
-}
+})
+
+  };
+
+ */

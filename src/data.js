@@ -247,20 +247,6 @@ function addPost(newPost, post_value, userId, userNom) {
 
     btnDelete.addEventListener('click', () => {
 
-        /*
-        EN MI DATABASE DE FIREBASE
-        users: tiene h1XYr ... 
-        es mi id -username claudia
-        
-        posts: solo tiene id de post 
-        con el mensaje y el id de
-        user-posts
-        
-        user-posts: tiene id de user-posts
-        dentro está el id de post que muestra
-        mi mensaje y id de user-posts*/
-
-
         if (window.confirm("¿Estás seguro de eliminar tu publicación?") == true) {
 
             //esto es en base de datos  
@@ -287,8 +273,7 @@ function addPost(newPost, post_value, userId, userNom) {
             });
 
             //elimina todos los posts solo en js
-            while (posts.firstChild)
-                posts.removeChild(posts.firstChild);
+            while (posts.firstChild) posts.removeChild(posts.firstChild);
 
             alert('El usuario ha sido eliminado con éxito!');
 
