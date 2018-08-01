@@ -15,6 +15,11 @@ p { margin-bottom: 10%;}
 #navbar{border-bottom: solid 2px#ff4d94;}
 .navbar{ border: solid #000000 1px; height:40%;}
 .align-top{ width:30%; height:20%;}
-body{background-image: url(img/fondo3.jpg);background-size: cover}
+.content {border: #000000 solid 2px;margin-right: 20%;  margin-left: 20%; min-height:400vh; }
+#post{ margin-left: 6%;margin-top: 6%; margin-bottom: 1%;  display: block;width: 50%;resize:none; }
+.title-publicar{padding: 5%; border: solid #000000 1px;}
+.btn-success { margin-left: 35%}
+#select {width: 10%;}
+body{border: red solid 2px;background-color: red;}
 
 

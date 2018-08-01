@@ -16,23 +16,37 @@
             <img src="img/nameLogo.jpg" class="d-inline-block align-top" alt="">
         </a>
         <ul class="nav justify-content-end">
+                
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Active</a>
+                  <a class="nav-link" href="#">Bienvenid@ </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="#">foto</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Cerrar Sesión</a>
                 </li>
              </ul>
       </nav>
-       
+    <div class="content">
+         <!-- Contenedor de Post Base de datos-->
+         <!-- <div id="bd" class="hiden"> -->
+         <div>
+            <h4 class="title-publicar">Publicar</h4>
+            <textarea  id="post" name="Publicacion" cols="30" rows="10" placeholder="Hoy quiero compartir esta receta..." ></textarea>
+            <button type="button" class="btn btn-success">Compartir</button>
+            <select id="select"class="custom-select" name="Selecciona">
+                    <option value="Público" selected>Público</option> 
+                    <option value="Amigos">Privado</option>
+             </select>
+             <div id="posts" class="hiden">
+              
+                 <u><h3>Publicaciones</h3></u>
+             </div>
+         </div>
+    </div>
     
-
+      
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
