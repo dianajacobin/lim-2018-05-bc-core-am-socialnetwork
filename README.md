@@ -55,15 +55,15 @@ Revisando a nuestras competencias podemos concluir que nuestra página tiene que
 ![Vista 1](dist/img/skech1.jpg)
 
 ![Vista 1](dist/img/Figma1.PNG)
-Test de nuestra Primera interfaz:
+**Test de nuestra Primera interfaz:**
 La primera observación que nos realizo el usuario era que no podia saber de que se traba la página web,además de que no tenia un nombre, nos sugirio que coloquemos una pequeña descripción sobre  de que se trataba nuestra página.
 
 ![Vista 2](dist/img/skech2.jpg)
 ![Vista 2](dist/img/Figma2.PNG)
-Test de nuestra Segunda interfaz:
+
+**Test de nuestra Segunda interfaz:**
 El usuario no pudo entender a simple vista de que se trataba ls iconos de la parte superior.
 
-![Interview](dist/img/interview.png)
 
 ## Entrevistas con Usuarios
 Cabe recalcar que el significado de las entrevistas es fundamental y que a menudo se pasa por alto, tienen un efecto importante en la calidad resultante del diseño final del producto, las entrevistas nos ayudan de tal manera que no tan sólo nos permite crear algo que solucione el problema sino de entender el problema tan bien que la solución es obvia. 
