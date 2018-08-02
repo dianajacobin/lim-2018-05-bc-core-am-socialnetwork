@@ -29,15 +29,8 @@ window.onload = () => {
                 //"http://subirimagen.me/uploads/20180717121119.jpg"
             //https://graph.facebook.com/10209691428881959/picture
                 //`${user.photoURL}`.appendChild(photoURL);
-                
-
-        else {
-            console.log('No está logueado');
-            registerUser.classList.remove("hiden");
-            login.classList.add("hiden");
-            posts.classList.add("hiden");
-            bd.classList.add("hiden");
-        }
+               
+        else {console.log('No está logueado'); }
     });
 }
 
