@@ -9,9 +9,9 @@
     crossorigin="anonymous"> 
     <title>Document</title>
 </head>
-<body>    
+<body id="main">    
         
-<nav class="navbar navbar-light bg-white">
+<nav id="nav-main" class="navbar navbar-light bg-white">
         <a class="navbar-brand" href="#">
             <img src="img/nameLogo.jpg" class="d-inline-block align-top" alt="">
         </a>
@@ -32,13 +32,16 @@
          <!-- Contenedor de Post Base de datos-->
          <!-- <div id="bd" class="hiden"> -->
          <div>
-            <h4 class="title-publicar">Publicar</h4>
-            <textarea  id="post" name="Publicacion" cols="30" rows="10" placeholder="Hoy quiero compartir esta receta..." ></textarea>
+            <h4 class="title-publicar">Publicaciones</h4>
+            <textarea  id="post" name="Publicacion" cols="30" rows="10" placeholder="Hoy quiero compartir..." ></textarea>
+            
             <button type="button" class="btn btn-success">Compartir</button>
             <select id="select"class="custom-select" name="Selecciona">
                     <option value="Público" selected>Público</option> 
                     <option value="Amigos">Privado</option>
              </select>
+             <button type="button" class="btn btn-warning">Like</button>
+             
              <div id="posts" class="hiden">
               
                  <u><h3>Publicaciones</h3></u>

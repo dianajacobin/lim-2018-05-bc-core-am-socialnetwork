@@ -1,70 +1,89 @@
-# Creando una Red Social
+#  Red Social : Healthy Food
 
-## Preámbulo
-
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## Introducción
-
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
-
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
-
-
-## Alimentación
-
-La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida.
-
-Alimentación y Nutrición aún cuando parecieran significar lo mismo, son conceptos diferentes.
-Los objetivos nutricionales tienen como finalidad promover la salud, reducir el riesgo de desarrollar patologías relacionadas con la alimentación y controlar enfermedades específicas causadas por una ingesta excesiva o insuficiente de ciertos alimentos.
-Para lograr tener una alimentación equilibrada debes incluir hidratos de carbono, proteínas, grasas, vitaminas y fibras. Cada uno de estos elementos es parte de la [_Pirámide Alimenticia_](https://do1pouckcwxot.cloudfront.net/mexico/uploads/2018/02/17162821/piramide1.jpg), pero no todos deben ser consumidos en cantidades iguales.
-
-
-
+Healthy Food es una red social cuyo objetivo es que los usuarios recomienden recetas, tiendas, productos, restarurantes que ofrescan productos o servicios de alimentacion saludable.Donde su beneficio  se obtendra  principalmente de las publicidades.
 
 ### UX
 
-Benchmark
+Según el diario La República, en un estudio realizado por  las plataformas We are Social y Hootsuiteen en enero del 2018, las redes sociales mas usadas en el Perú son Facebook con el 68% e Instagram 13% de todo el Perú. Siendo Facebook la red social mas preferida por los varones e instagram la red social mas preferida por mujeres.
 
-El benchmarking en Red Social o el análisis de la competencia en redes sociales es una parte imprescindible que forma parte del Plan de Social Media.
-Mediante este análisis se determina qué prácticas están haciendo mal los competidores para no caer en ellas y, con qué prácticas están teniendo éxito para tenerlas en cuenta en nuestra estrategia de red social.
+A continuación ranking por edades de usuarios que prefieren Facebook:
+1. Varones entre 18 y 24 años
+2. Varones entre 25 y 34 años
+3. Mujeres entre 18 y 24 años 
+4. Mujeres entre 25 y 34 años
+5. Varones entre 35 y 44 años
+6. Varones y Mujeres entre 13 y 65 a más años
+- Fuente: https://larepublica.pe/sociedad/1198456-peru-en-redes-sociales-2018-parte-i
 
-![Benchmark](src/img/Benchmark.png)
+Según la página Tendencias Digitales, de un estudio de usos de Internet en Latinoamérica 2016,  se tiene la siguiente información:
 
-El objetivo común de los principales post de comida saludable, en las diversas redes sociales existentes, es demostrar el gran poder nutritivo y de calidad de los alimentos, que a su vez son de fácil acceso y preparación, primordial requisito de los consumidores (usuarios). A continuación un listado de las principales redes con una gran cantidad de seguidores y mayor número de likes.
+Lo que más le gusta hacer a los peruanos en las Redes Sociales	son:
+1. Chatear	70%
+2. Leer publicaciones	69%
+3. Hacer comentarios	55%
+4. Publicar fotos	50%
+5. Compartir contenido	48%
+6. Saber que hacen sus amigos	45%
+- Fuente: https://tendenciasdigitales.com/internet-y-los-medios-sociales-en-peru/
 
-* Quinoa Story.
-* Bio Deli Orgánico.
-* La Perita.
-* Sano y Light.
-* Espresssate Vegan 
+Por lo cual concluimos que nuestro producto estará orientado a un publicó entre las edades de 18 a 34 años.
+
+##  Benchmark
+
+Realizando el benchmark de las redes sociales más populares en el Perú con enfoque a la alimentación saludable, vemos que existen pocas páginas web exclusivas para este ambito, sino que en su gran mayoria son grupos de Facebook o cuentas de Instagram que aprobrechan esas plataformas para transmitir información y generar un beneficio. Por lo cual vemos una buena oportunidad para emprender una red social exclusiva. 
+
+A continuación una lista redes sociales del Perú con el enfoque a comida saludable:
+
+1. fitnesscornerperu (Instagram)
+2. The Fitness Corner (Facebook)
+3. datofit_lifestyle (Instagram)
+4. DatoFIT (Facebook)
+5. fitadvisor.pe (Instagram)
+6. https://www.limaorganica.pe/ (Página web)
+7. limaorganicaperu (Instagram)
+- Fuente: https://peru21.pe/vida/vida-saludable-conoce-paginas-facebook-comparten-consejos-vida-saludable-393140
+
+Revisando a nuestras competencias podemos concluir que nuestra página tiene que tener una interfaz comun o similar a las redes sociales de Facebook e Instagram, para que al usuario se le haga mas familiar.A la vez observamos que debe tener un area para que en usuario comente.
 
 
-### PRODUCT THINKING
-
-Pensar en los productos brinda a los diseñadores la ventaja de crear las características adecuadas para las personas adecuadas. Ayuda a comprender la experiencia del usuario de un producto como un todo; no solo como Diseño de interacción y Visual de características. Se asegura de que los diseñadores aborden los problemas reales de los usuarios y, por lo tanto, reducen el riesgo de crear algo que nadie quiere. Le da el poder de tomar las decisiones correctas cuando se trata de crear características. Además ayuda a desarrollar funciones exitosas, al definir los problemas que aborda el producto, responde a la pregunta "¿por qué construimos este producto?". Definir el público objetivo "¿quién tiene estos problemas?" Y definir la solución "¿cómo lo estamos haciendo?" Proporcionará suficiente orientación para crear una nueva función. Establecer un objetivo ayudará a medir el éxito de esta característica.
-
-![Product Thinking](src/img/ProductThinking.png)
-
-
-
-### Skech de baja fidelidad
+### Sketch 
 
 ![Vista 1](src/img/skech1.jpg)
+![Vista 1](src/img/Figma1.png)
+Test de nuestra Primera interfaz:
+La primera observación que nos realizo el usuario era que no podia saber de que se traba la página web,además de que no tenia un nombre, nos sugirio que coloquemos una pequeña descripción sobre  de que se trataba nuestra página.
+
 ![Vista 2](src/img/skech2.jpg)
+Test de nuestra Segunda interfaz:
+El usuario no pudo entender a simple vista de que se trataba ls iconos de la parte superior.
+
+### Cuestionario
+1. Cuáles son los elementos básicos que tiene una red social.
+    Tienen un registro e inicio de sesion del usuario, podemos postear contenido (videos, imagenes, comentarios) , podemos responder  post, agregar amigos, recibir notificaciones.
+
+2. Quiénes son los principales usuarios de producto.
+    Usuarios entre las edades de 18 a 44 años.
+
+3. Cómo descubriste las necesidades de los usuarios.
+    Realizamos busqueda de estadisticas acerca de los usuarios que acceden a las redes sociales y entrevistas personales.
+
+4. Qué problema resuelve el producto para estos usuarios.
+    Los usuarios pueden encontrar encontrar recomendaciones de restaurantes, comentarios sobre servicios exclusivamente de alimentacion saludable.
+
+5. Cuáles son los objetivos de estos usuarios en relación con el producto.
+    Recomendar recetas, restaurantes, tiendas que fueron utiles y comentar sobre otras posteadas por los demas usaurios.
+
+6. Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
+    Las funcionalidades del producto son:
+    - Validaciones de usuarios (registro e inicio de sesion)
+    - Posteo de recomendaciones
+    - Comentar
+    - Dar Like
+    - Cerrar sesion
+    La prioridad es de la funcionalidad es comparir informacion con el post.
+
+7. Cómo verificaste que el producto les está resolviendo sus problemas.
+    Porque no existen redes sociales exclusivamente sobre alimentacion saludable, generalmente los usuarios abren grupos o cuentas en facebook e Instagram.
+
+8. Cómo te asegurarás que estos usuarios usen este producto.
+    Mediante un seguimiento de cuantos usuarios por dia se registran o visitan  la página. Si la visitan y no regresan encontrar la razón.
