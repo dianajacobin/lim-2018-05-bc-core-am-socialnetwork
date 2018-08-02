@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">  
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+ <title>Red Social</title>
+</head>
+<body>
+<div class="container">
+  <div class="box left">
+    <h1>Healthy Food</h1>
+    <div class="tabs">
+      <span class="tab signin active"><a href="#signin">Iniciar sesión</a></span>
+      <span class="tab signup"><a href="#signup">Registrarse</a></span>
+    </div>
+    <div class="content">
+      <!--  Form del Sign In -->
+      <div class="info signin-info">
+        <form action="#" method="post" enctype="multipart/form-data">
+          <input type="email" name="email" id="emaiLogin" class="inpt" required="required" placeholder="Email">
+          <label for="email">Email</label>
+          <input type="password" name="password" id="passwordLogin" class="inpt" required="required" placeholder="Contraseña">
+          <label for="password">Contraseña</label>
+          <div class="submit-wrap">
+            <input type="submit" value="Iniciar sesión" class="submit">
+            <a href="#" class="extra-link">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </div>
+      <!--  Sign Up Form -->
+      <div class="info signup-info">
+        <form action="#" method="post">
+          <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Email">
+          <label for="email">Email</label>
+          <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Contraseña">
+          <label for="password">Nueva Contraseña</label>
+          <div class="submit-wrap">
+            <input type="submit" value="Registrarse" class="submit">
+            <!--<a href="#" class="extra-link">Please Read Our Terms and conditions</a>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!--  Social Network Sign In  -->
+  <div class="box right">
+    <div class="info signin-info">
+      <span class="sign-via">Inicia sesión via... </span>
+      <button class="social-network facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</button>
+      <button class="social-network google"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</button>
+    </div>
+    <div class="info signup-info">
+      <span class="sign-via">Registrate vía... </span>
+      <button class="social-network facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</button>
+      <button class="social-network google"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</button>
+    </div>
+  </div>
+  
+</div>
+    <script>
+  // Initialize Firebase
+  const config = {
+    apiKey: "AIzaSyDlyPsTR7Jo4y0aSUIipN_NooO8HtqJexY",
+    authDomain: "fir-c6242.firebaseapp.com",
+    databaseURL: "https://fir-c6242.firebaseio.com",
+    projectId: "fir-c6242",
+    storageBucket: "fir-c6242.appspot.com",
+    messagingSenderId: "482129686898"
+  };
+  firebase.initializeApp(config);
+</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
