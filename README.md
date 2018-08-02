@@ -65,6 +65,7 @@ El proceso de diseño se basó en las siguientes etapas:
 El benchmarking de las distintas Redes Sociales (análisis de la competencia) es una parte imprescindible que forma parte de todo Plan de Social Media, mediante este análisis determinamos qué prácticas están haciendo mal los competidores para no caer en ellas y, con qué prácticas están teniendo éxito para tenerlas en cuenta en nuestra estrategia de red social. No se trata de copiar lo que está haciendo la competencia, sino de aprender de ellos, tomarlos como referencia y conseguir alcanzar un alto nivel de competitividad.  A continuación el modelo de negocios de los principales negocios de alimentos saludables.
 ![Benchmark](dist/img/Lienzo.png)
 El objetivo común de los principales post de comida saludable, en las diversas redes sociales existentes, es demostrar el gran poder nutritivo y de calidad de los alimentos, que a su vez son de fácil acceso y preparación, primordial requisito de los consumidores (usuarios). A continuación un listado de las principales redes con una gran cantidad de seguidores y mayor número de likes.
+
 ![Restaurantes/Tiendas](dist/img/Cuadro.png)
 ![Objetivos](dist/img/Objetivo.PNG)
 
