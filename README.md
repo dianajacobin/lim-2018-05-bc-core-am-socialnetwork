@@ -58,8 +58,9 @@ El **objetivo** común de los principales post de comida saludable en las divers
 Cabe recalcar que el significado de las entrevistas es fundamental y que a menudo se pasa por alto, tienen un efecto importante en la calidad resultante del diseño final del producto, las entrevistas nos ayudan de tal manera que no tan sólo nos permite crear algo que solucione el problema sino de entender el problema tan bien que la solución es obvia. 
 
 ### Primera Etapa
-En esta etapa se entrevistó (![_Guía de Preguntas_](dist/img/Interview.jpg)) a los futuros usuarios, consultando sobre su estilo de vida alimentaria, obteniendo así respuestas con un factor común (necesidad a cubrir).
+En esta etapa se entrevistó (_Guía de Preguntas_) a los futuros usuarios, consultando sobre su estilo de vida alimentaria, obteniendo así respuestas con un factor común (necesidad a cubrir).
 
+![_Guía de Preguntas_](dist/img/Interview.jpg)
 ![Definición del Problema](dist/img/Problm.jpg)
 
 ### Segunda Etapa
