@@ -39,7 +39,7 @@ Healthy Food es una red social creada en base a la necesidad de brindar a los fu
 La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida, aún cuando parecieran significar lo mismo, son conceptos diferentes.
 Ok, y esto qué tiene que ver con nuestra red social?, pues bien como lo hemos mencionado al inicio de esta breve introducción, Healthy Food es una red social que busca dar una solución inmediata a las incertidumbres constantes de “muchos” cuando de comer se trata. Existe un gran número de personas que tienen problemas de alimentación dentro los cuales se encuentra nuestro público objetivo, cuyas edades oscilan entre los veinte a treinta y cuatro años, quienes ingresan con mayor frecuencia a las redes sociales en búsqueda de recetas fáciles de preparar con insumos económicamente accesibles y de temporada.
 El proceso de diseño se basó en las siguientes etapas:
-![Proceso de Diseño](dist/img/Captura.png)
+![Proceso de Diseño](dist/img/Captura.PNG)
 
 1. Descubrimiento
 * Se parte de una idea inicial
@@ -65,7 +65,7 @@ El proceso de diseño se basó en las siguientes etapas:
 El benchmarking de las distintas Redes Sociales (análisis de la competencia) es una parte imprescindible que forma parte de todo Plan de Social Media, mediante este análisis determinamos qué prácticas están haciendo mal los competidores para no caer en ellas y, con qué prácticas están teniendo éxito para tenerlas en cuenta en nuestra estrategia de red social. No se trata de copiar lo que está haciendo la competencia, sino de aprender de ellos, tomarlos como referencia y conseguir alcanzar un alto nivel de competitividad.  A continuación el modelo de negocios de los principales negocios de alimentos saludables.
 ![Benchmark](dist/img/Lienzo.png)
 El objetivo común de los principales post de comida saludable, en las diversas redes sociales existentes, es demostrar el gran poder nutritivo y de calidad de los alimentos, que a su vez son de fácil acceso y preparación, primordial requisito de los consumidores (usuarios). A continuación un listado de las principales redes con una gran cantidad de seguidores y mayor número de likes.
-![Restaurantes/Tiendas](dist/img/Captura.png)
+![Restaurantes/Tiendas](dist/img/Cuadro.png)
 ![Objetivos](dist/img/Objetivo.PNG)
 
 # Entrevistas con Usuarios
