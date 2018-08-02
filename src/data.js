@@ -21,12 +21,7 @@ expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
 //if(expresionCorreo.test(email.value))
 
 window.onload = () => {
-        firebase.auth().onAuthStateChanged(function (user) {
-        if (user.sendEmailVerification()) {
-                    registerUser.classList.add("hiden");
-                    bd.classList.remove("hiden");
-                    posts.classList.remove("hiden");
-                    login.classList.remove("hiden");       
+        firebase.auth().onAuthStateChanged(function (user) {   
                     console.log('Inicio logueado');
                     console.log(user);
                     username.innerHTML = `Bienvenida  ${user.displayName}`;
@@ -34,7 +29,7 @@ window.onload = () => {
                 //"http://subirimagen.me/uploads/20180717121119.jpg"
             //https://graph.facebook.com/10209691428881959/picture
                 //`${user.photoURL}`.appendChild(photoURL);
-                }
+                
 
         else {
             console.log('No está logueado');
@@ -46,22 +41,13 @@ window.onload = () => {
     });
 }
 
-/*//Verificacion de correo
-const validation=()=>{
-    var user = firebase.auth().currentUser;
-   user.sendEmailVerification().then(function() {
-       console.log('enviando correo');
-   }).catch(function(error) {
-       console.log('error!');
-   });
-}*/
+
 
 //Registrar Usuario
 btnUp.addEventListener('click', () => {
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then(
-                (result)=> {
-                
+            (result)=> {   
             console.log('Se creó el usuario')
             var user= result.user;
             //writeUserData recibe parametros 
@@ -72,8 +58,10 @@ btnUp.addEventListener('click', () => {
         });
          if (email.value ==''||password.value==''){
          alert(' :( Por favor completa tu email y password para registrarte');
-    }    
-})
+    } 
+    window.location.href='main.js';
+});
+
 //Login de Usuario
 btnLogin.addEventListener('click', () => {
 

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous"> 
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <title>Document</title>
 </head>
 <body id="main">    
@@ -18,25 +19,25 @@
         <ul class="nav justify-content-end">
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Bienvenid@ </a>
+                  <a class="nav-link" href="#">Bienvenid@ <p id="username"></p> </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">foto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesión</a>
+                    <a id="btnLogout" class="nav-link" href="#">Cerrar Sesión</a>
                 </li>
              </ul>
       </nav>
     <div class="content">
          <!-- Contenedor de Post Base de datos-->
-         <!-- <div id="bd" class="hiden"> -->
          <div>
             <h4 class="title-publicar">Publicaciones</h4>
             <textarea  id="post" name="Publicacion" cols="30" rows="10" placeholder="Hoy quiero compartir..." ></textarea>
             
-            <button type="button" class="btn btn-success">Compartir</button>
+            <button id="btnSave" type="button" class="btn btn-success">Compartir</button>
             <select id="select"class="custom-select" name="Selecciona">
+                    <option value="">Elige una opción</option>
                     <option value="Público" selected>Público</option> 
                     <option value="Amigos">Privado</option>
              </select>
