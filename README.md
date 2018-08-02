@@ -37,10 +37,13 @@ Para lograr tener una alimentación equilibrada debes incluir hidratos de carbon
 Healthy Food es una red social creada en base a la necesidad de brindar a los futuros usuarios las herramientas necesarias para inclinar su [_balanza alimenticia_](http://blog.pindapps.com/wp-content/uploads/2012/12/balanza.png) hacia lo saludable y con un alto valor nutritivo.
 
 La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida, aún cuando parecieran significar lo mismo, son conceptos diferentes.
-Ok, y esto qué tiene que ver con nuestra red social?, pues bien como lo hemos mencionado al inicio de esta breve introducción, Healthy Food es una red social que busca dar una solución inmediata a las incertidumbres constantes de **muchos** cuando de comer se trata. Existe un gran número de personas que tienen problemas de alimentación dentro los cuales se encuentra nuestro público objetivo, cuyas edades oscilan entre los veinte a treinta y cuatro años, quienes ingresan con mayor frecuencia a las redes sociales en búsqueda de recetas fáciles de preparar con insumos económicamente accesibles y de temporada o lugares(Tiendas/Restaurantes) donde se puedan conseguir.
+Ok, y esto qué tiene que ver con nuestra red social?, pues bien como lo hemos mencionado al inicio de esta breve introducción, Healthy Food es una red social que busca dar una **solución inmediata a las incertidumbres constantes de muchos** cuando de comer se trata. 
+Existe un gran número de personas que tienen problemas de alimentación dentro los cuales se encuentra nuestro público objetivo, cuyas edades oscilan entre los dieciocho y cuarenta años, quienes ingresan con mayor frecuencia a las redes sociales en búsqueda de recetas fáciles de preparar con insumos económicamente accesibles y de temporada o lugares(Tiendas/Restaurantes) donde los puedan conseguir.
+
 El proceso de diseño se basó en las siguientes etapas:
 
 ![Proceso de Diseño](dist/img/Captura.PNG)
+
 **1. Descubrimiento**
     * Se parte de una idea inicial
     * Se identifica la necesidad/oportunidad
@@ -63,9 +66,12 @@ El proceso de diseño se basó en las siguientes etapas:
 
 # Benchmark
 El benchmarking de las distintas Redes Sociales (análisis de la competencia) es una parte imprescindible que forma parte de todo Plan de Social Media, mediante este análisis determinamos qué prácticas están haciendo mal los competidores para no caer en ellas y, con qué prácticas están teniendo éxito para tenerlas en cuenta en nuestra estrategia de red social. No se trata de copiar lo que está haciendo la competencia, sino de aprender de ellos, tomarlos como referencia y conseguir alcanzar un alto nivel de competitividad.  A continuación el modelo de negocios de los principales negocios de alimentos saludables.
+
 ![Benchmark](dist/img/Lienzo.png)
 
-El [_objetivo_](https://github.com/RosemarieLopHu/lim-2018-05-bc-core-am-socialnetwork/blob/Prueba2/dist/img/Objetivo.PNG) común de los principales post de comida saludable en las diversas redes sociales existentes es demostrar el gran poder nutritivo y de calidad de los alimentos, que a su vez son de fácil adquisición y/o preparación, principal requisito para consumidores (usuarios). A continuación un listado de las principales Tiendas/Restaurantes con una gran cantidad de seguidores y mayor número de likes.
+El **objetivo** común de los principales post de comida saludable en las diversas redes sociales existentes es demostrar el gran poder nutritivo y de calidad de los alimentos, que a su vez son de fácil adquisición y/o preparación, principal requisito para consumidores (usuarios). A continuación un listado de las principales Tiendas/Restaurantes con una gran cantidad de seguidores y mayor número de likes.
+
+![Objetivo de Restaurantes/Tiendas](dist/img/Objetivo.PNG)
 
 ![Restaurantes/Tiendas](dist/img/Tabla.png)
 
@@ -83,8 +89,10 @@ Luego de la comprensión del problema a resolver y la interpretación de las nec
 #### Skech de baja fidelidad
 
 ![Vista 1](dist/img/skech1.jpg)
+
 ![Vista 2](dist/img/skech2.jpg)
 
 ### Tercera Etapa
 Luego de materializar las ideas, prototipar la información se procede a medir y a evaluar la entrega.
+
 ![Test a Usuarios](dist/img/interview.png)
