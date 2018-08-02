@@ -26,6 +26,8 @@ Lo que más le gusta hacer a los peruanos en las Redes Sociales	son:
 6. Saber que hacen sus amigos	45%
 - Fuente: https://tendenciasdigitales.com/internet-y-los-medios-sociales-en-peru/
 
+![Vista 1](src/img/Problema.jpg)
+
 Por lo cual concluimos que nuestro producto estará orientado a un publicó entre las edades de 18 a 34 años.
 
 ##  Benchmark
@@ -43,6 +45,9 @@ A continuación una lista redes sociales del Perú con el enfoque a comida salud
 7. limaorganicaperu (Instagram)
 - Fuente: https://peru21.pe/vida/vida-saludable-conoce-paginas-facebook-comparten-consejos-vida-saludable-393140
 
+![Vista 1](src/img/Tabla.png)
+![Vista Benchmark](src/img/Lienzo.png)
+
 Revisando a nuestras competencias podemos concluir que nuestra página tiene que tener una interfaz comun o similar a las redes sociales de Facebook e Instagram, para que al usuario se le haga mas familiar.A la vez observamos que debe tener un area para que en usuario comente.
 
 
@@ -54,8 +59,11 @@ Test de nuestra Primera interfaz:
 La primera observación que nos realizo el usuario era que no podia saber de que se traba la página web,además de que no tenia un nombre, nos sugirio que coloquemos una pequeña descripción sobre  de que se trataba nuestra página.
 
 ![Vista 2](src/img/skech2.jpg)
+![Vista 2](src/img/Figma2.png)
 Test de nuestra Segunda interfaz:
 El usuario no pudo entender a simple vista de que se trataba ls iconos de la parte superior.
+
+![Interview](src/img/interview.png)
 
 ### Cuestionario
 1. Cuáles son los elementos básicos que tiene una red social.
