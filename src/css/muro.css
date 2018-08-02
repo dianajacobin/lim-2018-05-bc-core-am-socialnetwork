@@ -1,0 +1,10 @@
+#nav-main{   height:20%;border-bottom: green solid 1px}
+.align-top{ width:30%; height:20%;}
+.content {margin-right: 20%;  margin-left: 20%; min-height:400vh;background-color:#ffffff }
+#post{margin-left: 20%; margin-top: 4%; margin-bottom: 1%;width: 50%;height:20vh;resize:none; display: block}
+.title-publicar{padding: 4%;  }
+.btn-success { display: inline;margin-left: 38%}
+.btn-warning { display: inline; }
+#select { width:12%; display: inline;}
+#main{background-color : rgba(247, 240, 240, 0.973)}
+.nav-link {color: green; }
