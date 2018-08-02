@@ -1,30 +1,4 @@
-# Creando una Red Social
-
-## Preámbulo
-
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## Introducción
-
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
-
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
+# Red Social: Healthy Food
 
 ## Alimentación
 
@@ -84,7 +58,7 @@ El **objetivo** común de los principales post de comida saludable en las divers
 Cabe recalcar que el significado de las entrevistas es fundamental y que a menudo se pasa por alto, tienen un efecto importante en la calidad resultante del diseño final del producto, las entrevistas nos ayudan de tal manera que no tan sólo nos permite crear algo que solucione el problema sino de entender el problema tan bien que la solución es obvia. 
 
 ### Primera Etapa
-En esta etapa se entrevistó (_Guía de Preguntas_) a los futuros usuarios, consultando sobre su estilo de vida alimentaria, obteniendo así respuestas con un factor común (necesidad a cubrir).
+En esta etapa se entrevistó (![_Guía de Preguntas_](dist/img/Interview.jpg)) a los futuros usuarios, consultando sobre su estilo de vida alimentaria, obteniendo así respuestas con un factor común (necesidad a cubrir).
 
 ![Definición del Problema](dist/img/Problm.jpg)
 
@@ -101,3 +75,8 @@ Luego de la comprensión del problema a resolver y la interpretación de las nec
 Luego de materializar las ideas, prototipar la información se procede a medir y a evaluar la entrega.
 
 ![Test a Usuarios](dist/img/interview.png)
+
+Para esta etapa se utilizaron las siguientes técnicas:
+* Crítica de diseño con usuarios y clientes (Critic design).
+* Pruebas con usuarios (User test).
+* Monitorización o seguimiento visual (EyeTracking).
