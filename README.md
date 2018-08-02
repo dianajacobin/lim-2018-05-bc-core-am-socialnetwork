@@ -38,29 +38,34 @@ Healthy Food es una red social creada en base a la necesidad de brindar a los fu
 
 La salud y el buen funcionamiento de nuestro organismo, depende de la nutrición y alimentación que tengamos durante la vida, aún cuando parecieran significar lo mismo, son conceptos diferentes.
 Ok, y esto qué tiene que ver con nuestra red social?, pues bien como lo hemos mencionado al inicio de esta breve introducción, Healthy Food es una red social que busca dar una **solución inmediata a las incertidumbres constantes de muchos** cuando de comer se trata. 
+![Incertidumbre](dist/img/incertidumbre.jpg)
 Existe un gran número de personas que tienen problemas de alimentación dentro los cuales se encuentra nuestro público objetivo, cuyas edades oscilan entre los dieciocho y cuarenta años, quienes ingresan con mayor frecuencia a las redes sociales en búsqueda de recetas fáciles de preparar con insumos económicamente accesibles y de temporada o lugares(Tiendas/Restaurantes) donde los puedan conseguir.
 
 El proceso de diseño se basó en las siguientes etapas:
 
 ![Proceso de Diseño](dist/img/Captura.PNG)
 
-**1. Descubrimiento**
-    * Se parte de una idea inicial
-    * Se identifica la necesidad/oportunidad
-    * Investigacion (Research)
-    * Comprensión del problema a resolver
+_1. Descubrimiento_
 
-**2. Definición**
-    * Interpretación de las necesidades
-    * Arquitectura de la información
+   * Se parte de una idea inicial
+   * Se identifica la necesidad/oportunidad
+   * Investigacion (Research)
+   * Comprensión del problema a resolver
 
-**3. Prototipado**
-    * Materializar y ejecutar ideas
-    * Prototipar Interacción
+_2. Definición_
 
-**4. Entrega**
-    * Acabado del producto
-    * Medición, Evaluación
+   * Interpretación de las necesidades
+   * Arquitectura de la información
+
+_3. Prototipado_
+
+   * Materializar y ejecutar ideas
+   * Prototipar Interacción
+
+_4. Entrega_
+
+   * Acabado del producto
+   * Medición, Evaluación
 
 ![Product Thinking](dist/img/ProductThinking.png)
 
