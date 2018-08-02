@@ -19,9 +19,6 @@ const btnUp = document.getElementById("btnUp");
 //const textarea = document.getElementById("textarea");
 expresionCorreo = /\w+@[a-z]+\.+[a-z]/;
 
-
-
-
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -32,10 +29,7 @@ window.onload = () => {
             console.log('Inicio logueado');
             console.log(user);
             username.innerHTML = `Bienvenida  ${user.displayName}`;
-            // photoURL.innerHTML =`<img src= user.photoURL.value>`;
-            //"http://subirimagen.me/uploads/20180717121119.jpg"
-            //https://graph.facebook.com/10209691428881959/picture
-            //`${user.photoURL}`.appendChild(photoURL);
+            
         } else {
             console.log('No está logueado');
             registerUser.classList.remove("hiden");
@@ -247,20 +241,6 @@ function addPost(newPost, post_value, userId, userNom) {
 
     btnDelete.addEventListener('click', () => {
 
-        /*
-        EN MI DATABASE DE FIREBASE
-        users: tiene h1XYr ... 
-        es mi id -username claudia
-        
-        posts: solo tiene id de post 
-        con el mensaje y el id de
-        user-posts
-        
-        user-posts: tiene id de user-posts
-        dentro está el id de post que muestra
-        mi mensaje y id de user-posts*/
-
-
         if (window.confirm("¿Estás seguro de eliminar tu publicación?") == true) {
 
             //esto es en base de datos  
@@ -287,8 +267,7 @@ function addPost(newPost, post_value, userId, userNom) {
             });
 
             //elimina todos los posts solo en js
-            while (posts.firstChild)
-                posts.removeChild(posts.firstChild);
+            while (posts.firstChild) posts.removeChild(posts.firstChild);
 
             alert('El usuario ha sido eliminado con éxito!');
 
