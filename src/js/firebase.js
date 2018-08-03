@@ -8,7 +8,7 @@ const config = {
   messagingSenderId: "482129686898"
 };
 firebase.initializeApp(config);
-
+// Observador
 window.onload = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -21,63 +21,80 @@ window.onload = () => {
         }
     });
 }
-// Registro de usuario
-window.signUp = (email,password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((user) => {
-                console.log(user);
-                console.log('Se creó el usuario')
-                window.location.href='muro.html'
-            })
-            .catch((error) => {
-                console.log(error.code, error.message)
-            });
-};
-//Inicio de Sesión
+//Inicio de Sesión de usuario por email
 window.signIn = () => {
     firebase.auth().signInWithEmailAndPassword(emaiLogin, passwordLogin)
     .then((user)=>{
         console.log('user')
         console.log('Inicia Sesion')
-    })
+    },
+    window.location.href='muro.html')
     .catch((error)=> {
         console.log(error.code, error.message)
     });
 }
-
-
+// Registro de usuario por email
+window.signUp = (email,password) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((user) => {
+                console.log(user);
+                console.log('Se creó el usuario')
+            },
+            window.location.href='muro.html')
+            .catch((error) => {
+                console.log(error.code, error.message)
+            });
+};
+//Inicio de Sesion por Redes Sociales
+// Facebook
+window.loginFace = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+     /* provider.setCustomParameters({
+        'display': 'popup'
+    });  */
+    firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+            console.log('Sesión con Facebook', result);
+        },
+        window.location.href='muro.html')
+        .catch((error) => {
+            console.log(error.code);
+            console.log(error.message);
+            console.log(error.email);
+            console.log(error.credential);
+        });
+}
+//Google
 window.loginGoogle = () => {
 const provider = new firebase.auth.GoogleAuthProvider();
-    /* provider.setCustomParameters({
+      /* provider.setCustomParameters({
         'display': 'popup'
-    }); */
+    }); */ 
     firebase.auth().signInWithPopup(provider)
         .then((result) => {
             console.log('Sesión con Google', result);
             let user = result.user;
             //writeUserData recibe parametros 
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-        }).catch((error) => {
+            },
+            window.location.href='muro.html'
+    ).catch((error) => {
             console.log(error.code);
             console.log(error.message);
             console.log(error.email);
             console.log(error.credential);
         });
     }
-    //Sig
-window.loginFace = () => {
-    const provider = new firebase.auth.FacebookAuthProvider();
-  /*   provider.setCustomParameters({
-        'display': 'popup'
-    }); */
-    firebase.auth().signInWithPopup(provider)
-        .then((result) => {
-            console.log('Sesión con Facebook', result);
-        }).catch((error) => {
-            console.log(error.code);
-            console.log(error.message);
-            console.log(error.email);
-            console.log(error.credential);
-        });
+//Cerrar Sesión 
+ window.logout = () => {
+    firebase.auth().signOut().then(function (user) {
+        console.log(user);
+        console.log('Cerró sesión'); 
+        window.location.href= 'index.html';
+    })
+    .catch(function (error) {
+        console.log('Error al cerrar sesión');
+    })
 }
+
 
