@@ -1,5 +1,4 @@
 #  Red Social : Healthy Food
-
 Healthy Food es una red social cuyo objetivo es que los usuarios recomienden recetas, tiendas, productos, restarurantes que ofrescan productos o servicios de alimentacion saludable.Donde su beneficio  se obtendra  principalmente de las publicidades.
 
 ### UX
@@ -13,7 +12,7 @@ A continuación ranking por edades de usuarios que prefieren Facebook:
 4. Mujeres entre 25 y 34 años
 5. Varones entre 35 y 44 años
 6. Varones y Mujeres entre 13 y 65 a más años
-- Fuente: https://larepublica.pe/sociedad/1198456-peru-en-redes-sociales-2018-parte-i
+[_Fuente_](https://larepublica.pe/sociedad/1198456-peru-en-redes-sociales-2018-parte-i) 
 
 Según la página Tendencias Digitales, de un estudio de usos de Internet en Latinoamérica 2016,  se tiene la siguiente información:
 
@@ -24,9 +23,9 @@ Lo que más le gusta hacer a los peruanos en las Redes Sociales	son:
 4. Publicar fotos	50%
 5. Compartir contenido	48%
 6. Saber que hacen sus amigos	45%
-- Fuente: https://tendenciasdigitales.com/internet-y-los-medios-sociales-en-peru/
+[_Fuente_](https://tendenciasdigitales.com/internet-y-los-medios-sociales-en-peru/)
 
-![Vista 1](src/img/Problema.jpg)
+![Vista 1](dist/img/Problm.jpg)
 
 Por lo cual concluimos que nuestro producto estará orientado a un publicó entre las edades de 18 a 34 años.
 
@@ -41,47 +40,69 @@ A continuación una lista redes sociales del Perú con el enfoque a comida salud
 3. datofit_lifestyle (Instagram)
 4. DatoFIT (Facebook)
 5. fitadvisor.pe (Instagram)
-6. https://www.limaorganica.pe/ (Página web)
+6. [_Lima Orgánica_](https://www.limaorganica.pe)
 7. limaorganicaperu (Instagram)
-- Fuente: https://peru21.pe/vida/vida-saludable-conoce-paginas-facebook-comparten-consejos-vida-saludable-393140
+[_Fuente_](https://peru21.pe/vida/vida-saludable-conoce-paginas-facebook-comparten-consejos-vida-saludable-393140)
 
-![Vista 1](src/img/Tabla.png)
-![Vista Benchmark](src/img/Lienzo.png)
+![Vista 1](dist/img/Tabla.png)
+![Vista Benchmark](dist/img/Lienzo.png)
 
 Revisando a nuestras competencias podemos concluir que nuestra página tiene que tener una interfaz comun o similar a las redes sociales de Facebook e Instagram, para que al usuario se le haga mas familiar.A la vez observamos que debe tener un area para que en usuario comente.
 
 
 ### Sketch 
 
-![Vista 1](src/img/skech1.jpg)
-![Vista 1](src/img/Figma1.png)
-Test de nuestra Primera interfaz:
+![Vista 1](dist/img/skech1.jpg)
+
+![Vista 1](dist/img/Figma1.PNG)
+**Test de nuestra Primera interfaz:**
 La primera observación que nos realizo el usuario era que no podia saber de que se traba la página web,además de que no tenia un nombre, nos sugirio que coloquemos una pequeña descripción sobre  de que se trataba nuestra página.
 
-![Vista 2](src/img/skech2.jpg)
-![Vista 2](src/img/Figma2.png)
-Test de nuestra Segunda interfaz:
+![Vista 2](dist/img/skech2.jpg)
+![Vista 2](dist/img/Figma2.PNG)
+
+**Test de nuestra Segunda interfaz:**
 El usuario no pudo entender a simple vista de que se trataba ls iconos de la parte superior.
 
-![Interview](src/img/interview.png)
+
+## Entrevistas con Usuarios
+Cabe recalcar que el significado de las entrevistas es fundamental y que a menudo se pasa por alto, tienen un efecto importante en la calidad resultante del diseño final del producto, las entrevistas nos ayudan de tal manera que no tan sólo nos permite crear algo que solucione el problema sino de entender el problema tan bien que la solución es obvia. 
+
+### Primera Etapa
+En esta etapa se entrevistó (_Guía de Preguntas_) a los futuros usuarios, consultando sobre su estilo de vida alimentaria, obteniendo así respuestas con un factor común (necesidad a cubrir).
+
+![_Guía de Preguntas_](dist/img/Interview.jpg)
+![Definición del Problema](dist/img/Problm.jpg)
+
+### Segunda Etapa
+Luego de la comprensión del problema a resolver y la interpretación de las necesidades se procede con la arquitectura de la información documentada.
+### Tercera Etapa
+Luego de materializar las ideas, prototipar la información se procede a medir y a evaluar la entrega.
+
+![Test a Usuarios](dist/img/interview.png)
+
+Para esta etapa se utilizaron las siguientes técnicas:
+* Crítica de diseño con usuarios y clientes (Critic design).
+* Pruebas con usuarios (User test).
+* Monitorización o seguimiento visual (EyeTracking).
 
 ### Cuestionario
-**1. Cuáles son los elementos básicos que tiene una red social.**
+1. Cuáles son los elementos básicos que tiene una red social.
     Tienen un registro e inicio de sesion del usuario, podemos postear contenido (videos, imagenes, comentarios) , podemos responder  post, agregar amigos, recibir notificaciones.
 
-**2. Quiénes son los principales usuarios de producto.**
+2. Quiénes son los principales usuarios de producto.
     Usuarios entre las edades de 18 a 44 años.
 
-**3. Cómo descubriste las necesidades de los usuarios.**
+3. Cómo descubriste las necesidades de los usuarios.
     Realizamos busqueda de estadisticas acerca de los usuarios que acceden a las redes sociales y entrevistas personales.
 
-**4. Qué problema resuelve el producto para estos usuarios.**
+4. Qué problema resuelve el producto para estos usuarios.
     Los usuarios pueden encontrar encontrar recomendaciones de restaurantes, comentarios sobre servicios exclusivamente de alimentacion saludable.
 
-**5. Cuáles son los objetivos de estos usuarios en relación con el producto.**
+5. Cuáles son los objetivos de estos usuarios en relación con el producto.
     Recomendar recetas, restaurantes, tiendas que fueron utiles y comentar sobre otras posteadas por los demas usaurios.
 
-**6. Cuáles son las principales funcionalidades del producto y cuál es su prioridad.**
+6. Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
     Las funcionalidades del producto son:
     - Validaciones de usuarios (registro e inicio de sesion)
     - Posteo de recomendaciones
@@ -90,8 +111,8 @@ El usuario no pudo entender a simple vista de que se trataba ls iconos de la par
     - Cerrar sesion
     La prioridad es de la funcionalidad es comparir informacion con el post.
 
-**7. Cómo verificaste que el producto les está resolviendo sus problemas.**
+7. Cómo verificaste que el producto les está resolviendo sus problemas.
     Porque no existen redes sociales exclusivamente sobre alimentacion saludable, generalmente los usuarios abren grupos o cuentas en facebook e Instagram.
 
-**8. Cómo te asegurarás que estos usuarios usen este producto.**
+8. Cómo te asegurarás que estos usuarios usen este producto.
     Mediante un seguimiento de cuantos usuarios por dia se registran o visitan  la página. Si la visitan y no regresan encontrar la razón.
