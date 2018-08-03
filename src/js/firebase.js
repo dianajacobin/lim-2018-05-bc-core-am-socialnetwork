@@ -21,24 +21,28 @@ window.onload = () => {
         }
     });
 }
-// Registro de usuario
+// Registro de usuario (creando cuenta vía email, password)
 window.signUp = (email,password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((user) => {
                 console.log(user);
-                console.log('Se creó el usuario')
-                window.location.href='muro.html'
+                console.log(password);
+                console.log('Se creó el usuario');
+                window.location.href = 'muro.html'
             })
             .catch((error) => {
-                console.log(error.code, error.message)
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, error.message);
             });
 };
-//Inicio de Sesión
-window.signIn = () => {
+//Inicio de Sesión via email y password
+window.signIn = (email, password) => {
     firebase.auth().signInWithEmailAndPassword(emaiLogin, passwordLogin)
     .then((user)=>{
-        console.log('user')
-        console.log('Inicia Sesion')
+        console.log('user');
+        console.log('Inicia Sesion');
+        window.location.href = 'muro.html';
     })
     .catch((error)=> {
         console.log(error.code, error.message)
