@@ -1,11 +1,11 @@
-/* var firebasemock    = require('firebase-mock');
+import { MockAuthentication, MockFirebase, MockFirestore, MockStorage, MockMessaging, MockFirebaseSdk } from 'firebase-mock';
 
-var mockauth = new firebasemock.MockAuthentication();
-var mockdatabase = new firebasemock.MockFirebase();
-var mockfirestore = new firebasemock.MockFirestore();
-var mockstorage = new firebasemock.MockStorage();
-var mockmessaging = new firebasemock.MockMessaging();
-var mocksdk = new firebasemock.MockFirebaseSdk(
+var mockauth = new MockAuthentication();
+var mockdatabase = new MockFirebase();
+var mockfirestore = new MockFirestore();
+var mockstorage = new MockStorage();
+var mockmessaging = new MockMessaging();
+var mocksdk = new MockFirebaseSdk(
   // use null if your code does not use RTDB
   (path) => {
     return path ? mockdatabase.child(path) : mockdatabase;
@@ -44,5 +44,3 @@ describe((email, password) => {
     $('.signup-info').show();
   }
 });
-
- */

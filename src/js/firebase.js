@@ -1,3 +1,4 @@
+import admin from 'firebase-admin';
 // Initialize Firebase
 const config = {
   apiKey: "AIzaSyDlyPsTR7Jo4y0aSUIipN_NooO8HtqJexY",

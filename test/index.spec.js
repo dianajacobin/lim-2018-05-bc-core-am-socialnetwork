@@ -1,5 +1,5 @@
-const assert = require('chai').assert;
+import { assert } from 'chai';
 global.window = global;
 global.firebase = require('firebase');
-require("../data.spec.js");
+import "../data.spec.js";
 

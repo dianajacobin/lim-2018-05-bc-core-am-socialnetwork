@@ -103,6 +103,7 @@ function addPost(newPost, post_value, userId, userNom) {
 window.
         textPost.disabled = false;
 
+        
         btnUpdate.setAttribute("value", "Guardar");
 
       
