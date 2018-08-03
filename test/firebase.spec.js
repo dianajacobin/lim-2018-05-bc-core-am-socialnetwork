@@ -25,22 +25,14 @@ var mocksdk = new MockFirebaseSdk(
   // use null if your code does not use MESSAGING
   () => {
     return
-describe((email, password) => {
-    
-
-})
-
-  };$('.tabs .tab').click(function() {
-  if ($(this).hasClass('signin')) {
-    $('.tabs .tab').removeClass('active');
-    $(this).addClass('active');
-    $('.info').hide();
-    $('.signin-info').show();
-  }
-  if ($(this).hasClass('signup')) {
-    $('.tabs .tab').removeClass('active');
-    $(this).addClass('active');
-    $('.info').hide();
-    $('.signup-info').show();
-  }
-});
+  };
+ 
+  users.create({
+    email: 'ben@example.com',
+    password: 'examplePass'
+  });
+  mocksdk.auth().flush();
+  
+  mocksdk.auth().getUserByEmail('ben@example.com').then(function(user) {
+    console.assert(user, 'ben was created');
+  });

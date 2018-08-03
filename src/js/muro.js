@@ -53,9 +53,9 @@ function addPost(newPost, post_value, userId, userNom) {
             }
             else {
                 alert("Solo puedes dar 1 like");
-            }
+            };
 
-        }
+        };
     };
 
     
@@ -98,7 +98,6 @@ function addPost(newPost, post_value, userId, userNom) {
 
     });
 
-
    /*  btnUpdate.addEventListener('click', () => { */
 window.
         textPost.disabled = false;
@@ -137,7 +136,7 @@ window.
     contPost.appendChild(btnLike);
     contPost.appendChild(cantLikes);
     posts.appendChild(contPost);
-}
+};
 
 
 function reload_page() {
