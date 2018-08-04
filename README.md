@@ -3,7 +3,7 @@ Healthy Food es una red social cuyo objetivo es que los usuarios recomienden rec
 
 ### UX
 
-Según el diario La República, en un estudio realizado por  las plataformas We are Social y Hootsuiteen en enero del 2018, las redes sociales más usadas en el Perú son Facebook con el 68% e Instagram 13% de todo el Perú. Siendo Facebook la red social mas preferida por los varones e instagram la red social mas preferida por mujeres.
+Según el diario La República, en un estudio realizado por  las plataformas We are Social y Hootsuiteen en enero del 2018, las redes sociales mas usadas en el Perú son Facebook con el 68% e Instagram 13% de todo el Perú. Siendo Facebook la red social mas preferida por los varones e instagram la red social mas preferida por mujeres.
 
 A continuación ranking por edades de usuarios que prefieren Facebook:
 1. Varones entre 18 y 24 años
@@ -94,13 +94,13 @@ Para esta etapa se utilizaron las siguientes técnicas:
     Usuarios entre las edades de 18 a 44 años.
 
 3. Cómo descubriste las necesidades de los usuarios.
-    Realizamos búsqueda de estadísticas acerca de los usuarios que acceden a las redes sociales y entrevistas personales.
+    Realizamos busqueda de estadisticas acerca de los usuarios que acceden a las redes sociales y entrevistas personales.
 
 4. Qué problema resuelve el producto para estos usuarios.
-    Los usuarios pueden encontrar encontrar recomendaciones de restaurantes, comentarios sobre servicios exclusivamente de alimentación saludable.
+    Los usuarios pueden encontrar encontrar recomendaciones de restaurantes, comentarios sobre servicios exclusivamente de alimentacion saludable.
 
 5. Cuáles son los objetivos de estos usuarios en relación con el producto.
-    Recomendar recetas, restaurantes, tiendas que les fueron útiles y comentar sobre otras posteadas por los demás usuarios.
+    Recomendar recetas, restaurantes, tiendas que fueron utiles y comentar sobre otras posteadas por los demas usaurios.
 
 6. Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
     Las funcionalidades del producto son:
@@ -109,7 +109,7 @@ Para esta etapa se utilizaron las siguientes técnicas:
     - Comentar
     - Dar Like
     - Cerrar sesion
-    La prioridad es de la funcionalidad es compartir informacion con el post.
+    La prioridad es de la funcionalidad es comparir informacion con el post.
 
 7. Cómo verificaste que el producto les está resolviendo sus problemas.
     Porque no existen redes sociales exclusivamente sobre alimentacion saludable, generalmente los usuarios abren grupos o cuentas en facebook e Instagram.
