@@ -2,14 +2,15 @@ const registerVal = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       alert('confirma tu correo electronico')
-      // const user = {
-      //   uid: result.user.uid,
-      //   displayName: document.getElementById('name').value,
-      //   email: result.user.email,
-      //   photoURL: 'http://subirimagen.me/uploads/20180725011911.png',
-      // }
+      const user = {
+         uid: result.user.uid,
+         displayName: document.getElementById('name').value,
+         email: result.user.email,
+        photoURL: 'https://freeiconshop.com/wp-content/uploads/edd/chef-outline.png',
+      }
       console.log(user);
       // guardaDatos(user)
+      writeUserData(user);
       verificar();
   }).catch((error) => {
     let errorCode = error.code;
@@ -58,6 +59,7 @@ const facebookLogin = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
+      writeUserData(user);
       // guardaDatos(user);
   }).catch((error)=> {
     alert('err'+error.message);
@@ -73,6 +75,12 @@ const gmailLogin = () => {
   firebase.auth().signInWithPopup(provider)
   .then((result)=> {
     var user = result.user;
+    writeUserData(user);
     // guardaDatos(user);
   });
 };
+
+// guardando los datos en database
+const writeUserData = (user) => {
+  firebase.database().ref('users/' + user.uid).set(user);
+}

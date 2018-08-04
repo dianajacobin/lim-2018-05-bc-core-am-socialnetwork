@@ -22,7 +22,7 @@ const translateToRegister = document.getElementById('translateToRegister');
 const ingresoUser = document.getElementById('ingresoUser');
 const translateToIngreso = document.getElementById('translateToIngreso');
 
-
+let username= document.getElementById('username');
 translateToRegister.addEventListener('click', ()=>{
   registerUser.classList.remove('show');
   registerUser.classList.add('hiden');
@@ -52,7 +52,7 @@ window.onload = () => {
             ingresoUser.classList.remove('show')
             console.log('Inicio logueado');
             console.log(user);
-            username.innerHTML = `Bienvenida  ${user.displayName}`;
+            username.innerHTML = `Bienvenida  ${user.email}`;
           } else {
             console.log('No está logueado');
             registerUser.classList.remove("hiden");
@@ -86,3 +86,7 @@ btnGoogle.addEventListener('click', ()=>{
 btnFacebook.addEventListener('click', ()=>{
   facebookLogin();
 }) 
+//post
+btnSave.addEventListener('click',()=>{postValidation();});
+/*btnUpdate.addEventListener('click',);
+btnDelete.addEventListener('click',); */
