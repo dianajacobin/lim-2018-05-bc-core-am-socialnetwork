@@ -4,7 +4,7 @@ const writeNewPost = (uid, mensaje,privacidad, likes) => {
     uid: uid,
     mensaje: mensaje,
     privacidad:privacidad,
-    likes:likes,
+    likes:0,
   };  
 // Get a key for a new Post
 let newPostKey = firebase.database().ref().child('posts').push().key;
