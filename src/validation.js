@@ -15,12 +15,3 @@ const loginValidation = (email, password) => {
         }
 }
 
-const postValidation = () => {
-    if (post.nodeValue.length== 0||post.value=='')
-        {
-           alert('Debes publicar al menos un caracter'); 
-        } else{
-            
-        }
-
-}

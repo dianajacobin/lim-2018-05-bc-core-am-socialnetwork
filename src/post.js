@@ -20,17 +20,14 @@ let updates = {};
 
 // show the post
 const listAllPost = () => {
-  let data = '';
+  let data = ' ';
   let postRef = firebase.database().ref('posts/');
   let user = firebase.auth().currentUser.uid;
-
-  
   
  // let userRef = firebase.database().ref('users/');
   
   postRef.on('value', function(snapshot){
-    const posts = snapshot.val();
-    console.log (posts)
+    const posts = snapshot.val(); 
     const postKeys = Object.keys(posts);
    
      postKeys.forEach( post => {
@@ -90,5 +87,13 @@ const listAllPost = () => {
   });
 
 }
-                     
+
+const Eliminar = (newPostKey) => {
+  let uid = firebase.auth().currentUser.uid;
+  firebase.database().ref.child('user-posts/'+ uid + newPostKey).remove();
+  firebase.database().ref().child('posts/'+ newPostKeyey).remove();
+  while (allPosts.firstChild) allPosts.removeChild(allPosts.firstChild);
+    alert('Post eliminado');
+  location.reload();  
+}
      

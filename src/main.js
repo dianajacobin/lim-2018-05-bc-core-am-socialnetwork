@@ -56,7 +56,7 @@ const facebookLogin = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
       writeUserData(result.user);
-  }).catch((error)=> {
+  }, console.log('Facebook')).catch((error)=> {
     alert('err'+error.message);
     console.log(error.code);
     console.log(error.message);
@@ -70,7 +70,7 @@ const gmailLogin = () => {
   firebase.auth().signInWithPopup(provider)
   .then((result)=> {
     writeUserData(result.user);
-  });
+  },console.log('gmail'));
 };
 
 // guardando los datos en database

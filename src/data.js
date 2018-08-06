@@ -65,7 +65,6 @@ const verificateUserAuth = () => {
           bd.classList.add("show");
           userImage.src = currentUser.photoURL;
 
-          //posts.classList.remove("hiden");
           login.classList.remove("hiden");
           
           ingresoUser.classList.add('hiden')
@@ -127,7 +126,5 @@ btnSave.addEventListener('click',()=>{
 });
 /*btnUpdate.addEventListener('click',); */
 
-const eliminar = () => {
 
 
-}
