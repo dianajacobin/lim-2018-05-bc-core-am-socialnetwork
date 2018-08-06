@@ -1,15 +1,7 @@
 const registerVal = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
-      alert('confirma tu correo electronico')
-       const user = {
-         uid: result.user.uid,
-         displayName: result.user.email,
-         email: result.user.email,
-         photoURL: 'https://freeiconshop.com/wp-content/uploads/edd/chef-outline.png',
-       }
-      console.log(user);
-      writeUserData(user);
+      writeUserData(result.user);
       verificar();
   }).catch((error) => {
     let errorCode = error.code;
@@ -21,8 +13,11 @@ const registerVal = (email, password) => {
 
 const ingresoVal = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
-  .then(()=>{
-    loginValidacion();
+  .then((result)=>{
+    //loginValidacion();
+    //var user = result.user;
+    //writeUserData(user);
+    verificateUserAuth();
   })
   .catch((error) => {
   let errorCode = error.code;
@@ -35,7 +30,7 @@ const ingresoVal = (email, password) => {
 const close = () => {
     firebase.auth().signOut()
     .then(()=>{
-      alert('Saliendo...');
+      console.log('Saliendo...');
     }).catch((error) => {
       console.log(error);
     });
@@ -44,7 +39,10 @@ const close = () => {
 const verificar = () => {
   let user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    alert('enviando correo');
+    let emailMessage = document.getElementById('emailMessage');
+    emailMessage.classList.remove("hiden");
+    emailMessage.classList.add("show");
+    emailMessage.innerHTML = 'Te hemos enviado un e-mail para activar tu cuenta';
   }).catch((error) => {
     console.log(error);
   });
@@ -57,8 +55,7 @@ const facebookLogin = () => {
   });
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      const user = result.user;
-      writeUserData(user);
+      writeUserData(result.user);
   }).catch((error)=> {
     alert('err'+error.message);
     console.log(error.code);
@@ -72,13 +69,25 @@ const gmailLogin = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
   .then((result)=> {
-    var user = result.user;
-    writeUserData(user);
+    writeUserData(result.user);
   });
 };
 
 // guardando los datos en database
 const writeUserData = (user) => {
-  firebase.database().ref('users/' + user.uid).set(user);
+
+  const userData = {
+    uid: user.uid,
+    displayName: user.displayName === null ? user.email : user.displayName,
+    photoURL: user.photoURL === null ? 'https://freeiconshop.com/wp-content/uploads/edd/chef-outline.png' : user.photoURL
+  }
+  
+  firebase.database().ref('users/' + userData.uid).set(userData, function(error){
+    if(error){
+      console.log('ocurrio un error: ', error);
+    }else{
+      console.log('save success!');
+    }
+  });
 }
    

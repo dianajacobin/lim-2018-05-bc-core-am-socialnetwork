@@ -1,0 +1,31 @@
+{
+  "name": "lim-2018-05-bc-core-am-socialnetwork",
+  "version": "1.0.0",
+  "description": "Healthy Food es una red social cuyo objetivo es que los usuarios recomienden recetas, tiendas, productos, restarurantes que ofrescan productos o servicios de alimentacion saludable.Donde su beneficio  se obtendra  principalmente de las publicidades.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosemarieLopHu/lim-2018-05-bc-core-am-socialnetwork.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RosemarieLopHu/lim-2018-05-bc-core-am-socialnetwork/issues"
+  },
+  "homepage": "https://github.com/RosemarieLopHu/lim-2018-05-bc-core-am-socialnetwork#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "firebase-admin": "^5.13.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  },
+  "devDependencies": {
+    "firebase-mock": "^2.2.4"
+  }
+}

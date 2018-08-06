@@ -32,45 +32,78 @@
     </div>
            <!-- Registro de Usuario Nuevo -->
      <form id="registerUser" class="show">
-             <p>Registrate</p>
-           <input id="email" type="email" placeholder=" Correo Electrónico..." required>
-           <input id="password" type="password" placeholder=" Contraseña..."   required>
-           <input id="btnUp" type="button" value="Registrarme">
-           <input id="translateToRegister" type="button" value="o inicia sesion">
-
+        <p>Registrate</p>
+        <input id="email" type="email" placeholder=" Correo Electrónico..." required>
+        <input id="password" type="password" placeholder=" Contraseña..."   required>
+        <input id="btnUp" type="button" value="Registrarme">
+        <input id="translateToRegister" type="button" value="o inicia sesion">
+        <div id="emailMessage" class="alert alert-success hiden" role="alert" ></div>
      </form>
 
      <!-- Ingreso de usuarios -->
      <form id="ingresoUser" class="hiden">
-             <p>Inicia Sesion </p>
-            <input id="btnGoogle" type="button" value="Google">
-            <input id="btnFacebook" type="button" value="Facebook">
-            <p> or</p>
-           <input id="emaiLogin" type="email" placeholder=" Correo Electrónico..." required>
-           <input id="passwordLogin" type="password" placeholder=" Contraseña..."   required>
-           <input id="btnLogin" type="button" value="Iniciar Sesion">
-           <input id="translateToIngreso" type="button" value="o Registrate">
-
+         <div class="container">
+                <p>Inicia Sesion </p>
+                <div class="row">
+                    <span id="btnGoogle" class="span-google">
+                        <a href="">
+                            Google
+                            <img src="img/gmail.png" alt="google" height="30" width="30">
+                        </a>
+                    </span>
+                    <span id="btnFacebook" class="span-facebook" >
+                        <a href="">
+                            Facebook
+                            <img src="img/facebook.png" alt="facebook" height="30" width="30">
+                        </a>
+                    </span>                    
+                </div>
+                <p> or</p>
+                <div class="row">
+                    <input id="emaiLogin" type="email" placeholder=" Correo Electrónico..." required class="form-control">
+                    <input id="passwordLogin" type="password" placeholder=" Contraseña..."   required class="form-control" >
+                    <input id="btnLogin" type="button" value="Iniciar Sesion" class="btn btn-primary btn-iniciar-session">
+                </div>
+                ó
+                <div class="row">
+                    <input id="translateToIngreso" type="button" value="Registrate" class="btn btn-primary">
+                </div>        
+         </div>
      </form>
             <!-- Contenedor de Post Base de datos-->
       <div id="bd" class="hiden">
-                    <label for="Publicar">Publicar</label>
-                    <br>
-                    <textarea  id="post" name="Publicacion"  cols="30" rows="10"></textarea>
-                    <br>
-                    <input id="btnSave" type="button" value="Compartir">
-                    <select id="sel" name="Selecciona">
-                            <option value="">Elige una opción</option>
-                            <option value="Público">Público</option>
-                            <option value="Privado">Privado</option>
-                    </select>
-                     <div id="posts" class="hiden">
-                        <br>
-                         <u><h3>Publicaciones</h3></u>
-                         <br>
-                          <div id="content"></div> 
-                      
-                     </div>
+        <div class="container">
+            <h3>Publicar</h3>
+            <br>
+            <div class="row justify-content-center newPost">
+                <div class="col-2">
+                    <img id="userImage" src="" height="44" width="44" >
+                </div>
+                <div class="col-10">
+                    <form action="">
+                        <div class="row divTextArea">
+                            <textarea  id="post" name="Publicacion" class="form-control input-contrast comment-form-textarea"></textarea>
+                        </div>
+                        <div class="row divTextAreaActions">
+                            <div class="col-6">
+                                <select id="sel" name="Selecciona" class="form-control" >
+                                    <option value="Publico" selected >Público</option>
+                                    <option value="Privado">Privado</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <input id="btnSave" type="button" class="btn btn-primary" value="Compartir">
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="allPosts">
+
+            </div>
+        </div>
+
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
