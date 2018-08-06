@@ -125,5 +125,9 @@ btnSave.addEventListener('click',()=>{
   post.value = '';
   listAllPost();
 });
-/*btnUpdate.addEventListener('click',);
-btnDelete.addEventListener('click',); */
+/*btnUpdate.addEventListener('click',); */
+
+const eliminar = () => {
+
+
+}
