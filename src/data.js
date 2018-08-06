@@ -56,7 +56,7 @@ const verificateUserAuth = () => {
           currentUser.displayName = snapshot.val().displayName;
           currentUser.photoURL = snapshot.val().photoURL;
 
-          username.innerHTML = `Bienvenid@  ${currentUser.displayName}`;
+          username.innerHTML = `Bienvenida  ${currentUser.displayName}`;
 
           registerUser.classList.remove("show");
           registerUser.classList.add("hiden");

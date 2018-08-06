@@ -22,8 +22,8 @@ const ingresoVal = (email, password) => {
   .catch((error) => {
   let errorCode = error.code;
   let errorMessage = error.message;
-  alert('Error en firebase >'+ errorCode);
-  alert('Error en firebase >'+ errorMessage);
+  alert('Error en firebase'+ errorCode);
+  alert('Error en firebase'+ errorMessage);
   });
 };
 

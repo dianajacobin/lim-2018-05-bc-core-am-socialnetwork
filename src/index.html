@@ -24,11 +24,11 @@
 </head>
 <body>
     <div id="formulario">
-        <!-- Contenedor de Sesion Iniciada  / Cerrar Sesion-->    <!-- -->
+        <!-- Contenedor de Sesion Iniciada  / Cerrar Sesion-->    
     <div id="login" class="hiden">
         <p id="username"></p>
         <!--<img id="photoURL" alt="">-->
-        <input id="btnLogout" type="button" value="Logout">
+        <input id="btnLogout" type="button" value="Cerrar Sesión">
     </div>
            <!-- Registro de Usuario Nuevo -->
      <form id="registerUser" class="show">
@@ -36,7 +36,7 @@
         <input id="email" type="email" placeholder=" Correo Electrónico..." required>
         <input id="password" type="password" placeholder=" Contraseña..."   required>
         <input id="btnUp" type="button" value="Registrarme">
-        <input id="translateToRegister" type="button" value="o inicia sesion">
+        <input id="translateToRegister" type="button" value="Inicia Sesión">
         <div id="emailMessage" class="alert alert-success hiden" role="alert" ></div>
      </form>
 
@@ -48,23 +48,22 @@
                     <span id="btnGoogle" class="span-google">
                         <a href="">
                             Google
-                            <img src="img/gmail.png" alt="google" height="30" width="30">
+                            <img src="../dist/img/gmail.png" alt="google" height="30" width="30">
                         </a>
                     </span>
                     <span id="btnFacebook" class="span-facebook" >
                         <a href="">
                             Facebook
-                            <img src="img/facebook.png" alt="facebook" height="30" width="30">
+                            <img src="../dist/img/facebook.png" alt="facebook" height="30" width="30">
                         </a>
                     </span>                    
                 </div>
-                <p> or</p>
                 <div class="row">
                     <input id="emaiLogin" type="email" placeholder=" Correo Electrónico..." required class="form-control">
                     <input id="passwordLogin" type="password" placeholder=" Contraseña..."   required class="form-control" >
-                    <input id="btnLogin" type="button" value="Iniciar Sesion" class="btn btn-primary btn-iniciar-session">
+                    <input id="btnLogin" type="button" value="Iniciar Sesión" class="btn btn-primary btn-iniciar-session">
+                    <p>o</p>
                 </div>
-                ó
                 <div class="row">
                     <input id="translateToIngreso" type="button" value="Registrate" class="btn btn-primary">
                 </div>        
@@ -106,16 +105,15 @@
 
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+<!--     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="main.js"></script>
     <script src="validation.js"></script>
     <script src="data.js"></script>
     <script src="post.js"></script>
 </body>
-
 </html>
