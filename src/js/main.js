@@ -20,19 +20,18 @@ if(btnRegistro){
     firebase.auth().createUserWithEmailAndPassword(inputEmail.value, inputPassword.value)
       .then((result) => {
         console.log('CREATE USER/PASSWORD SUCCESS: ',result);
-        writeUserData(result.user);
         const user = firebase.auth().currentUser;
         user.sendEmailVerification()
-          .then(() => {
-            console.log('SEND EMAIL SUCCESS');
-            let emailMessage = document.getElementById('emailMessage');
-            emailMessage.classList.remove("hiden");
-            emailMessage.classList.add("show");
-            emailMessage.innerHTML = 'Te hemos enviado un e-mail para activar tu cuenta';
-          }).catch((error) => {
-            console.error('SEND EMAIL ERROR: ',error);
-          });
-          location.href = '/muro.html';
+        .then(() => {
+          console.log('SEND EMAIL SUCCESS');
+          let emailMessage = document.getElementById('emailMessage');
+          emailMessage.classList.remove("hiden");
+          emailMessage.classList.add("show");
+          emailMessage.innerHTML = 'Te hemos enviado un e-mail para activar tu cuenta';
+        }).catch((error) => {
+          console.error('SEND EMAIL ERROR: ',error);
+        });
+        writeUserData(result.user);
     }).catch((error) => {
       console.error('CREATE USER/PASSWORD ERROR: ', error);
     });
