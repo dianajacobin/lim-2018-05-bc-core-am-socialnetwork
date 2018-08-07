@@ -100,9 +100,10 @@ const listAllPost = () => {
         let allPosts = document.getElementById('allPosts');
         const posts = snapshot.val();
         if(posts){
+            
             const postKeys = Object.keys(posts);
             postKeys.forEach( (post, index) => {
-                
+                if(posts[post].isPublic){
                 data += `
                         <div class="row justify-content-center postSolo">
                             <div class="col-2">
@@ -126,8 +127,35 @@ const listAllPost = () => {
                             </div>  
                     `;
         
+                } else {
+                    if(posts[post].uid===user){ 
+                        data += `
+                        <div class="row justify-content-center postSolo">
+                            <div class="col-2">
+                            <img id="userImage" src="${posts[post].photoURL}" height="44" width="44" >
+                            </div>
+                            <div class="col-10">
+                            <form action="">
+                                <div class="row divTextArea">
+                                    <textarea  id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
+                                </div>
+                                ${ posts[post].uid === currentUser.uid ? `
+                                    <div class="row divTextAreaActions">
+                                        <div class="col-12">
+                                            <input id="btnEditar" type="button" class="btn btn-primary" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                                            <input id="btnEliminar" type="button" class="btn btn-primary" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
+                                        </div>
+                                    </div>
+                                ` : '' }
+                            </form>
+                            </div>  
+                            </div>  
+                    `;
+                    } 
+                  }
             });
             allPosts.innerHTML = data;
+        
         }else {
             allPosts.innerHTML = 'No hay posts ;(';
         }
