@@ -95,12 +95,14 @@ const eliminar = (userUid, postUid) => {
 const listAllPost = () => {
     let data = '';
     let postRef = firebase.database().ref('posts/');
+    let user = firebase.auth().currentUser.uid;
     postRef.on('value', function(snapshot){
         let allPosts = document.getElementById('allPosts');
         const posts = snapshot.val();
         if(posts){
             const postKeys = Object.keys(posts);
             postKeys.forEach( (post, index) => {
+                
                 data += `
                         <div class="row justify-content-center postSolo">
                             <div class="col-2">
