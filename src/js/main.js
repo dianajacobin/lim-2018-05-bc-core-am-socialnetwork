@@ -106,7 +106,7 @@ if(btnLogout){
     firebase.auth().signOut()
       .then(()=> {
         console.log('LOGOUT SUCCESS');
-        location.href = '/index.html';
+        location.href = 'index.html';
       })
       .catch((error)=> {
         console.error('LOGOUT ERROR: ', error);  
@@ -128,7 +128,7 @@ const writeUserData = (user) => {
       console.log('ocurrio un error: ', error);
     }else{
       console.log('save success!');
-      location.href = '/muro.html';
+      location.href = 'muro.html';
     }
   });
 }

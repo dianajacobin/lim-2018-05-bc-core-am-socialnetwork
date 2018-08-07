@@ -4,7 +4,7 @@ let currentUser = {};
 window.onload = () => {
     verificateUserAuth();
 }
-
+//Verificacion de autenticacion de usuario
 const verificateUserAuth = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -23,7 +23,7 @@ const verificateUserAuth = () => {
                 }
             });
         }else{
-            location.href = '/index.html';
+            location.href = 'index.html';
         }
     }); 
 };
