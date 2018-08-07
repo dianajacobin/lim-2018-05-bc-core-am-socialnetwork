@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Red Social</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="text-center">
     <form class="form-signin">
         <img class="mb-4" src="img/logoMeal.png" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Registro</h1>
+        <div id="emailMessage" class="alert alert-success hiden" role="alert" ></div>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+        <button id="btnRegistro" class="btn btn-lg btn-primary btn-block" type="submit">Registrarte</button>
         <div class="mb-3">
             ó
         </div>
@@ -26,9 +27,8 @@
             <a id="btnGoogle" href="#" class="social-button"> <span>Google</span></a>
         </div>
 
-        <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Registrate</button> -->
         <div class="registrate">
-            ¿No tienes una cuenta? <a href="/registro.html">Regístrate</a>
+            ¿Tienes una cuenta? <a href="/index.html">Inicia sesíon</a>
         </div>
 
         <p class="mt-5 mb-3 text-muted">&copy; Agosto-2018</p>
@@ -41,6 +41,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-database.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script>    
 </body>
 </html>
