@@ -67,7 +67,6 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
 //creación de nuevo post
 const editar = (userUid, postUid) => {
     if (confirm('¿Estas Seguro de Editar tu publicación?')){
-        console.log(btnEditar);
         let updates = {};
         updates['/posts/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
         updates['/user-posts/' + userUid + '/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
@@ -118,7 +117,7 @@ const listAllPost = () => {
                 <div class="col-10">
                 <form action="">
                     <div class="row divTextArea">
-                        <textarea  id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
+                        <textarea disabled id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
                     </div>
                     <div class="row divTextAreaActions">
                         <div class="col-6 div-actions">
@@ -149,7 +148,7 @@ const listAllPost = () => {
                         <div class="col-10">
                         <form action="">
                             <div class="row divTextArea">
-                                <textarea id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
+                                <textarea disabled id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
                             </div>
                             <div class="row divTextAreaActions">
                                 <div class="col-6 div-actions">
