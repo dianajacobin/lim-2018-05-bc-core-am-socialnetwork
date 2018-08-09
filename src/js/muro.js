@@ -1,116 +1,116 @@
 
 let currentUser = {};
 window.onload = () => {
-    verificateUserAuth();
+  verificateUserAuth();
 }
 //Verificacion de autenticacion de usuario
 const verificateUserAuth = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            firebase.database().ref('/users/' + user.uid).once('value').then((snapshot) => {
-                if(snapshot.val()){
-                    currentUser.uid = snapshot.val().uid;
-                    currentUser.displayName = snapshot.val().displayName;
-                    currentUser.photoURL = snapshot.val().photoURL;
-                    let userImage = document.getElementById('userImage');
-                    userImage.src = currentUser.photoURL;
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      firebase.database().ref('/users/' + user.uid).once('value').then((snapshot) => {
+        if (snapshot.val()) {
+          currentUser.uid = snapshot.val().uid;
+          currentUser.displayName = snapshot.val().displayName;
+          currentUser.photoURL = snapshot.val().photoURL;
+          let userImage = document.getElementById('userImage');
+          userImage.src = currentUser.photoURL;
 
-                    listAllPost();
-                }else{
-                    alert("no hay datos del usuario autenticado");
-                }
-            });
-        }else{
-            location.href = 'index.html';
+          listAllPost();
+        } else {
+          alert("no hay datos del usuario autenticado");
         }
-    }); 
+      });
+    } else {
+      location.href = 'index.html';
+    }
+  });
 };
 //compartir
 const btnSave = document.getElementById("btnSave");
-if(btnSave){
-    btnSave.addEventListener('click',()=>{
-        let post = document.getElementById('post');
-        let mensaje = post.value;
-        if(mensaje.trim().length == 0){
-            alert('Debes ingresar un mensaje!');
-            return;
-        }
-        const isPublic = document.getElementById('sel').value === 'Publico' ? true : false ;
-        writeNewPost(currentUser.uid, currentUser.displayName, currentUser.photoURL, mensaje.trim(), isPublic, 0);
-        post.value = '';
-    });
+if (btnSave) {
+  btnSave.addEventListener('click', () => {
+    let post = document.getElementById('post');
+    let mensaje = post.value;
+    if (mensaje.trim().length == 0) {
+      alert('Debes ingresar un mensaje!');
+      return;
+    }
+    const isPublic = document.getElementById('sel').value === 'Publico' ? true : false;
+    writeNewPost(currentUser.uid, currentUser.displayName, currentUser.photoURL, mensaje.trim(), isPublic, 0);
+    post.value = '';
+  });
 }
 //creación de nuevo post
 const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
-    const postData = {
-      uid: uid,
-      displayName: displayName,
-      photoURL: photoURL,
-      mensaje: mensaje,
-      isPublic: isPublic,
-      likes: 0
-    };  
-    let newPostKey = firebase.database().ref().child('posts').push().key;
-    let updates = {};
-    updates['/posts/' + newPostKey] = postData;
-    updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-    firebase.database().ref().update(updates);
-    listAllPost();
+  const postData = {
+    uid: uid,
+    displayName: displayName,
+    photoURL: photoURL,
+    mensaje: mensaje,
+    isPublic: isPublic,
+    likes: 0
+  };
+  let newPostKey = firebase.database().ref().child('posts').push().key;
+  let updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+  firebase.database().ref().update(updates);
+  listAllPost();
 }
 //creación de nuevo post
 const editar = (userUid, postUid) => {
-    if (confirm('¿Estas Seguro de Editar tu publicación?')){
-        document.getElementById('post-'+postUid).removeAttribute('disabled');
-     
-    }else {
-        console.log('Se procedió a cancelar la edicion');
-    }
-    document.getElementById('btnSaveEditPost').removeAttribute('hidden');
-    document.getElementById('btnEditar').style.display = 'none';
+  if (confirm('¿Estas Seguro de Editar tu publicación?')) {
+    document.getElementById('post-' + postUid).removeAttribute('disabled');
+
+  } else {
+    console.log('Se procedió a cancelar la edicion');
+  }
+  document.getElementById('btnSaveEditPost').removeAttribute('hidden');
+  document.getElementById('btnEditar').style.display = 'none';
 }
 // guardar post editado
 const saveEditPost = (userUid, postUid) => {
-    console.log(userUid);
-    let updates = {};
-    updates['/posts/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
-    updates['/user-posts/' + userUid + '/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
-    firebase.database().ref().update(updates);
-    listAllPost();
+  console.log(userUid);
+  let updates = {};
+  updates['/posts/' + postUid + "/mensaje"] = document.getElementById('post-' + postUid).value;
+  updates['/user-posts/' + userUid + '/' + postUid + "/mensaje"] = document.getElementById('post-' + postUid).value;
+  firebase.database().ref().update(updates);
+  listAllPost();
 }
 //Likes
 const updateLikes = (userUid, postUid) => {
-    let like = parseInt(document.getElementById('like-'+postUid).innerHTML);
-    let likeUpdate = like + 1;
-    let updates = {};
-    updates['/posts/'+postUid+'/likes'] = likeUpdate; 
-    updates['/user-posts/'+userUid+'/'+postUid+'/likes'] = likeUpdate; 
-    firebase.database().ref().update(updates);
-    listAllPost();
+  let like = parseInt(document.getElementById('like-' + postUid).innerHTML);
+  let likeUpdate = like + 1;
+  let updates = {};
+  updates['/posts/' + postUid + '/likes'] = likeUpdate;
+  updates['/user-posts/' + userUid + '/' + postUid + '/likes'] = likeUpdate;
+  firebase.database().ref().update(updates);
+  listAllPost();
 }
 //eliminar
 const eliminar = (userUid, postUid) => {
-    if (confirm('¿Estas Seguro de Eliminar tu publicación?')){
-        firebase.database().ref().child('/posts/' + postUid).remove();
-        firebase.database().ref().child('/user-posts/' + userUid + '/' + postUid).remove();
-        listAllPost();
-    }else{
-       console.log('Se procedió a cancelar la eliminación');
-    }
+  if (confirm('¿Estas Seguro de Eliminar tu publicación?')) {
+    firebase.database().ref().child('/posts/' + postUid).remove();
+    firebase.database().ref().child('/user-posts/' + userUid + '/' + postUid).remove();
+    listAllPost();
+  } else {
+    console.log('Se procedió a cancelar la eliminación');
+  }
 }
 //imprimir publicaciones
 const listAllPost = () => {
-    let data = '';
-    let postRef = firebase.database().ref('posts/');
-    let user = firebase.auth().currentUser.uid;
-    postRef.on('value', function(snapshot){
-        let allPosts = document.getElementById('allPosts');
-        const posts = snapshot.val();
-        if(posts){
-            
-            const postKeys = Object.keys(posts);
-            postKeys.forEach( (post, index) => {
-                if(posts[post].isPublic){
-                data += `
+  let data = '';
+  let postRef = firebase.database().ref('posts/');
+  let user = firebase.auth().currentUser.uid;
+  postRef.on('value', function (snapshot) {
+    let allPosts = document.getElementById('allPosts');
+    const posts = snapshot.val();
+    if (posts) {
+
+      const postKeys = Object.keys(posts);
+      postKeys.forEach((post, index) => {
+        if (posts[post].isPublic) {
+          data += `
                 <div class="row justify-content-center postSolo">
                 <div class="col-2">
                 <img id="userImage" src="${posts[post].photoURL}" class="img-user-image float-right" >
@@ -132,17 +132,17 @@ const listAllPost = () => {
                             <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
                             <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
                             <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
-                            ` : '' }
+                            ` : ''}
                         </div>
                     </div>
                 </form>
                 </div>  
                 </div>   
                     `;
-        
-                } else {
-                    if(posts[post].uid===user){ 
-                        data += `
+
+        } else {
+          if (posts[post].uid === user) {
+            data += `
                         <div class="row justify-content-center postSolo">
                         <div class="col-2">
                         <img id="userImage" src="${posts[post].photoURL}" class="img-user-image float-right" >
@@ -164,21 +164,21 @@ const listAllPost = () => {
                                     <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
                                     <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
                                     <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
-                                    ` : '' }
+                                    ` : ''}
                                 </div>
                             </div>
                         </form>
                         </div>  
                         </div>   
                     `;
-                    } 
-                  }
-            });
-            allPosts.innerHTML = data;
-        
-        }else {
-            allPosts.innerHTML = 'No hay posts ;(';
+          }
         }
-    });
-  }
+      });
+      allPosts.innerHTML = data;
+
+    } else {
+      allPosts.innerHTML = 'No hay posts ;(';
+    }
+  });
+}
 

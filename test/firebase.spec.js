@@ -1,38 +1,87 @@
-import { MockAuthentication, MockFirebase, MockFirestore, MockStorage, MockMessaging, MockFirebaseSdk } from 'firebase-mock';
+const assert = require('chai').assert;
+global.window = global;
 
-var mockauth = new MockAuthentication();
-var mockdatabase = new MockFirebase();
-var mockfirestore = new MockFirestore();
-var mockstorage = new MockStorage();
-var mockmessaging = new MockMessaging();
-var mocksdk = new MockFirebaseSdk(
-  // use null if your code does not use RTDB
-  (path) => {
-    return path ? mockdatabase.child(path) : mockdatabase;
-  },
-  // use null if your code does not use AUTHENTICATION
+const firebasemock = require('firebase-mock');
+const mockauth = new firebasemock.MockFirebase();
+const mockdatabase = new firebasemock.MockFirebase();
+mockdatabase.autoFlush();
+mockauth.autoFlush();
+
+global.firebase = firebasemock.MockFirebaseSdk(
+  path => path ? mockdatabase.child(path) : mockdatabase,
+  () => mockauth
+);
+
+//cuando se usa un mock ya no se necesita configurar firebaseAdmin, porue todo lo ejecuta el mock (el impostor)
+require("../src/model");
+
+describe(
+  "Modelo de la lista de tareas",// se empieza por lo general
   () => {
-    return mockauth;
-  },
-  // use null if your code does not use FIRESTORE
-  () => {
-    return mockfirestore;
-  },
-  // use null if your code does not use STORAGE
-  () => {
-    return mockstorage;
-  },
-  // use null if your code does not use MESSAGING
-  () => {
-    return
-  };
- 
-  users.create({
-    email: 'ben@example.com',
-    password: 'examplePass'
-  });
-  mocksdk.auth().flush();
-  
-  mocksdk.auth().getUserByEmail('ben@example.com').then(function(user) {
-    console.assert(user, 'ben was created');
-  });
+    describe(
+      "La lista, me debería permitir agregar tareas",
+      () => {
+        it("Debería agregar una tarea",
+          (done) => {
+            addTask("Comprar pan").then(
+              (task) => {
+                return getTaskList();
+              }
+            ).then(
+              (taskList) => {
+                const comprarPan = Object.entries(taskList.val())
+                  .find(
+                    task => {
+                      return task[1].title == "Comprar pan";
+                    }
+                  );
+                assert.exists(comprarPan[1]);//verifica que exista algo en particular en el código una función
+                assert.equal(comprarPan[1].title, "Comprar pan");
+                done();
+              }
+            ).catch(
+              (error) => {
+                done(error);
+              }
+            )
+          }
+        );
+      }
+    );
+
+    describe(
+      "La lista, me debería permitir colocarle un progreso a una tarea",
+      () => {
+        it("Debería permitirle colocarle progreso a una tarea",
+          (done) => { //parametros de la función
+            taskProgress("Comprar pan", "se ha comprado").then(
+              (task) => {
+                assert.exists(task);
+                assert.equal(task.title, "Comprar pan");
+                assert.equal(task.state, "se ha comprado");
+                done();
+              }
+            ).catch(
+              (error) => {
+                done(error);
+              }
+            );
+          })
+      }
+    );
+
+    describe(
+      "La lista, me debería permitir editar una tarea",
+      () => {
+      }
+    );
+
+    describe(
+      "La lista, me debería permitir borrar una tarea",
+      () => {
+
+      }
+    );
+  }
+);
+
