@@ -6,9 +6,7 @@ const config = {
   storageBucket: "fir-c6242.appspot.com",
   messagingSenderId: "482129686898"
 };
-
 firebase.initializeApp(config);
-
 //REGISTRO EMAIL / PASSWORD
 const btnRegistro = document.getElementById('btnRegistro');
 if(btnRegistro){
@@ -16,12 +14,10 @@ if(btnRegistro){
     e.preventDefault();
     const inputEmail = document.getElementById('inputEmail');
     const inputPassword = document.getElementById('inputPassword');
-
     if(inputEmail.value.trim().length == 0 || inputPassword.value.trim().length == 0){
       showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
       return;
     }
-
     firebase.auth().createUserWithEmailAndPassword(inputEmail.value, inputPassword.value)
       .then((result) => {
         console.log('CREATE USER/PASSWORD SUCCESS: ',result);
@@ -52,12 +48,10 @@ if(btnLogin){
     e.preventDefault();
     const inputEmail = document.getElementById('inputEmail');
     const inputPassword = document.getElementById('inputPassword');
-
     if(inputEmail.value.trim().length == 0 || inputPassword.value.trim().length == 0){
       showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
       return;
     }    
-  
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputPassword.value)
       .then((result)=>{
         console.log('USER/PASSWORD SUCCESS: ',result);
@@ -76,7 +70,6 @@ const btnFacebook = document.getElementById('btnFacebook');
 if(btnFacebook){
   btnFacebook.addEventListener('click', (e) => {
     e.preventDefault();
-  
     let provider = new firebase.auth.FacebookAuthProvider();
     provider.setCustomParameters({
       'display': 'popup'
@@ -96,7 +89,6 @@ const btnGoogle = document.getElementById('btnGoogle');
 if(btnGoogle){
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-  
     let provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
       .then((result)=> {
@@ -108,7 +100,6 @@ if(btnGoogle){
       });
   });
 }
-
 //LOGOUT
 const btnLogout = document.getElementById('btnLogout');
 if(btnLogout){
@@ -126,8 +117,6 @@ if(btnLogout){
   
   });
 }
-
-
 // guardando los datos en database
 const writeUserData = (user) => {
   const userData = {
@@ -144,7 +133,6 @@ const writeUserData = (user) => {
     }
   });
 }
-
 const showMessage = (element, message) => {
   let myElement = document.getElementById(element);
   if(myElement){

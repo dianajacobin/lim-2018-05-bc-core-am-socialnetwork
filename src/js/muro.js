@@ -1,6 +1,5 @@
 
 let currentUser = {};
-
 window.onload = () => {
     verificateUserAuth();
 }
@@ -13,13 +12,12 @@ const verificateUserAuth = () => {
                     currentUser.uid = snapshot.val().uid;
                     currentUser.displayName = snapshot.val().displayName;
                     currentUser.photoURL = snapshot.val().photoURL;
-
                     let userImage = document.getElementById('userImage');
                     userImage.src = currentUser.photoURL;
 
                     listAllPost();
                 }else{
-                    console.log("no hay datos del usuario autenticado");
+                    alert("no hay datos del usuario autenticado");
                 }
             });
         }else{
@@ -42,7 +40,6 @@ if(btnSave){
         post.value = '';
     });
 }
-
 //creación de nuevo post
 const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
     const postData = {
@@ -53,28 +50,32 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
       isPublic: isPublic,
       likes: 0
     };  
-    // Get a key for a new Post
     let newPostKey = firebase.database().ref().child('posts').push().key;
-    // Write the new post's data simultaneously in the posts list and the user's post list.
     let updates = {};
     updates['/posts/' + newPostKey] = postData;
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
     firebase.database().ref().update(updates);
     listAllPost();
 }
-
 //creación de nuevo post
 const editar = (userUid, postUid) => {
     if (confirm('¿Estas Seguro de Editar tu publicación?')){
-        let updates = {};
-        updates['/posts/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
-        updates['/user-posts/' + userUid + '/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
-        firebase.database().ref().update(updates);
-        listAllPost();
+        document.getElementById('post-'+postUid).removeAttribute('disabled');
+     
     }else {
         console.log('Se procedió a cancelar la edicion');
     }
+    document.getElementById('btnSaveEditPost').removeAttribute('hidden');
+    document.getElementById('btnEditar').style.display = 'none';
+}
+// guardar post editado
+const saveEditPost = (userUid, postUid) => {
+    console.log(userUid);
+    let updates = {};
+    updates['/posts/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
+    updates['/user-posts/' + userUid + '/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
+    firebase.database().ref().update(updates);
+    listAllPost();
 }
 //Likes
 const updateLikes = (userUid, postUid) => {
@@ -130,6 +131,7 @@ const listAllPost = () => {
                             ${ posts[post].uid === currentUser.uid ? `
                             <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
                             <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                            <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
                             ` : '' }
                         </div>
                     </div>
@@ -161,6 +163,7 @@ const listAllPost = () => {
                                     ${ posts[post].uid === currentUser.uid ? `
                                     <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
                                     <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                                    <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
                                     ` : '' }
                                 </div>
                             </div>
