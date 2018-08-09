@@ -40,7 +40,6 @@ if(btnRegistro){
 
   });
 }
-
 //LOGIN EMAIL / PASSWORD
 const btnLogin = document.getElementById('btnLogin');
 if(btnLogin){
@@ -64,7 +63,6 @@ if(btnLogin){
   
   });
 }
-
 //Inicio de Sesión con FACEBOOK
 const btnFacebook = document.getElementById('btnFacebook');
 if(btnFacebook){
@@ -83,7 +81,6 @@ if(btnFacebook){
       });  
   });
 }
-
 //Inicio de Sesión con GOOGLE
 const btnGoogle = document.getElementById('btnGoogle');
 if(btnGoogle){
