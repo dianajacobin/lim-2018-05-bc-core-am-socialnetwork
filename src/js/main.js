@@ -17,6 +17,11 @@ if(btnRegistro){
     const inputEmail = document.getElementById('inputEmail');
     const inputPassword = document.getElementById('inputPassword');
 
+    if(inputEmail.value.trim().length == 0 || inputPassword.value.trim().length == 0){
+      showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
+      return;
+    }
+
     firebase.auth().createUserWithEmailAndPassword(inputEmail.value, inputPassword.value)
       .then((result) => {
         console.log('CREATE USER/PASSWORD SUCCESS: ',result);
@@ -34,6 +39,7 @@ if(btnRegistro){
         writeUserData(result.user);
     }).catch((error) => {
       console.error('CREATE USER/PASSWORD ERROR: ', error);
+      showMessage('dangerMessage', error.message);
     });
 
   });
@@ -46,6 +52,11 @@ if(btnLogin){
     e.preventDefault();
     const inputEmail = document.getElementById('inputEmail');
     const inputPassword = document.getElementById('inputPassword');
+
+    if(inputEmail.value.trim().length == 0 || inputPassword.value.trim().length == 0){
+      showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
+      return;
+    }    
   
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputPassword.value)
       .then((result)=>{
@@ -54,6 +65,7 @@ if(btnLogin){
       })
       .catch((error) => {
         console.error('USER/PASSWORD ERROR: ', error);
+        showMessage('dangerMessage', error.message);
       });
   
   });
@@ -106,7 +118,7 @@ if(btnLogout){
     firebase.auth().signOut()
       .then(()=> {
         console.log('LOGOUT SUCCESS');
-        location.href = 'index.html';
+        location.href = '/index.html';
       })
       .catch((error)=> {
         console.error('LOGOUT ERROR: ', error);  
@@ -131,4 +143,17 @@ const writeUserData = (user) => {
       location.href = 'muro.html';
     }
   });
+}
+
+const showMessage = (element, message) => {
+  let myElement = document.getElementById(element);
+  if(myElement){
+    myElement.innerHTML = message;
+    myElement.classList.remove('hiden');
+    myElement.classList.add('show');
+    setTimeout( () => {
+      myElement.classList.remove('show');
+      myElement.classList.add('hiden');
+    }, 5000);
+  }
 }

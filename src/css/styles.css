@@ -44,38 +44,31 @@ body {
 }
 
 .login-box {
-    /* background: #fff; */
-    /* padding: 20px; */
     max-width: 480px;
-    /* margin: 25vh auto; */
     text-align: center;
     letter-spacing: 1px;
     position: relative;
 }
 
-/* .login-box:hover {
-	  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-} */
-
 .social-button {
-	  background-position: 25px 0px;
+	background-position: 25px 0px;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     cursor: pointer;
     display: inline-block;
     height: 50px;
-	  line-height: 50px;
+	line-height: 50px;
     text-align: left;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
     width: 100%;
-	  border-radius: 3px;
+	 border-radius: 3px;
     margin: 10px auto;
     outline: rgb(255, 255, 255) none 0px;
     padding-left: 20%;
     transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
-	  -webkit-transition: all .3s ease;
+	 -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
@@ -127,9 +120,9 @@ body {
 }
 
 #btnGoogle:hover {
-	  border-color: rgb(220, 74, 61);
-	  background: rgb(220, 74, 61) url('https://eswarasai.com/projects/social-login/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-	  -webkit-transition: all .8s ease-out;
+	 border-color: rgb(220, 74, 61);
+	 background: rgb(220, 74, 61) url('https://eswarasai.com/projects/social-login/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+	 -webkit-transition: all .8s ease-out;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
@@ -152,8 +145,8 @@ body {
 }
 
 #btnGoogle:hover span {
-	  color: #FFF;
-	  -webkit-transition: all .3s ease;
+	 color: #FFF;
+	 -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
@@ -167,10 +160,3 @@ body {
     display: block;
 }
 
-/*
-.span-google {
-    padding-right: 40px;
-}
-.btn-iniciar-session {
-    margin-top: 20px;
-} */

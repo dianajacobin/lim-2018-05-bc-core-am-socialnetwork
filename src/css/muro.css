@@ -22,3 +22,20 @@
 .postSolo {
    padding-bottom: 20px; 
 }
+
+.div-actions {
+    padding: 0px;
+}
+
+.img-user-image {
+    border: 2px solid darkgray;
+    height: 50px;
+    width: 50px;
+}
+
+.button-action-editar {
+    margin-right: 10px;
+}
+.comment-form-textarea {
+    resize: none;
+}

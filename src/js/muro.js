@@ -27,7 +27,7 @@ const verificateUserAuth = () => {
         }
     }); 
 };
-
+//compartir
 const btnSave = document.getElementById("btnSave");
 if(btnSave){
     btnSave.addEventListener('click',()=>{
@@ -51,7 +51,7 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
       photoURL: photoURL,
       mensaje: mensaje,
       isPublic: isPublic,
-      likes: likes
+      likes: 0
     };  
     // Get a key for a new Post
     let newPostKey = firebase.database().ref().child('posts').push().key;
@@ -66,22 +66,28 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
 
 //creación de nuevo post
 const editar = (userUid, postUid) => {
-    const postData = {
-        uid: userUid,
-        displayName: currentUser.displayName,
-        photoURL: currentUser.photoURL,
-        mensaje: document.getElementById('post-'+postUid).value,
-        isPublic: document.getElementById('sel').value === 'Publico' ? true : false ,
-        likes: 0
-    };  
+    if (confirm('¿Estas Seguro de Editar tu publicación?')){
+        console.log(btnEditar);
+        let updates = {};
+        updates['/posts/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
+        updates['/user-posts/' + userUid + '/' + postUid+"/mensaje"] = document.getElementById('post-'+postUid).value;
+        firebase.database().ref().update(updates);
+        listAllPost();
+    }else {
+        console.log('Se procedió a cancelar la edicion');
+    }
+}
+//Likes
+const updateLikes = (userUid, postUid) => {
+    let like = parseInt(document.getElementById('like-'+postUid).innerHTML);
+    let likeUpdate = like + 1;
     let updates = {};
-    updates['/posts/' + postUid] = postData;
-    updates['/user-posts/' + userUid + '/' + postUid] = postData;
-
+    updates['/posts/'+postUid+'/likes'] = likeUpdate; 
+    updates['/user-posts/'+userUid+'/'+postUid+'/likes'] = likeUpdate; 
     firebase.database().ref().update(updates);
     listAllPost();
 }
-
+//eliminar
 const eliminar = (userUid, postUid) => {
     if (confirm('¿Estas Seguro de Eliminar tu publicación?')){
         firebase.database().ref().child('/posts/' + postUid).remove();
@@ -91,7 +97,7 @@ const eliminar = (userUid, postUid) => {
        console.log('Se procedió a cancelar la eliminación');
     }
 }
-
+//imprimir publicaciones
 const listAllPost = () => {
     let data = '';
     let postRef = firebase.database().ref('posts/');
@@ -105,51 +111,63 @@ const listAllPost = () => {
             postKeys.forEach( (post, index) => {
                 if(posts[post].isPublic){
                 data += `
-                        <div class="row justify-content-center postSolo">
-                            <div class="col-2">
-                            <img id="userImage" src="${posts[post].photoURL}" height="44" width="44" >
-                            </div>
-                            <div class="col-10">
-                            <form action="">
-                                <div class="row divTextArea">
-                                    <textarea  id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
-                                </div>
-                                ${ posts[post].uid === currentUser.uid ? `
-                                    <div class="row divTextAreaActions">
-                                        <div class="col-12">
-                                            <input id="btnEditar" type="button" class="btn btn-primary" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
-                                            <input id="btnEliminar" type="button" class="btn btn-primary" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
-                                        </div>
-                                    </div>
-                                ` : '' }
-                            </form>
-                            </div>  
-                            </div>  
+                <div class="row justify-content-center postSolo">
+                <div class="col-2">
+                <img id="userImage" src="${posts[post].photoURL}" class="img-user-image float-right" >
+                </div>
+                <div class="col-10">
+                <form action="">
+                    <div class="row divTextArea">
+                        <textarea  id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
+                    </div>
+                    <div class="row divTextAreaActions">
+                        <div class="col-6 div-actions">
+                            <span class="d-inline-block" onclick="updateLikes('${currentUser.uid}','${postKeys[index]}')">
+                                <img id="userImage" src="img/like32.png" height="32" width="32" class="d-inline-block">
+                                <div id="like-${postKeys[index]}" class="d-inline-block">${posts[post].likes}</div>
+                            </span>
+                        </div>
+                        <div class="col-6 div-actions">
+                            ${ posts[post].uid === currentUser.uid ? `
+                            <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
+                            <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                            ` : '' }
+                        </div>
+                    </div>
+                </form>
+                </div>  
+                </div>   
                     `;
         
                 } else {
                     if(posts[post].uid===user){ 
                         data += `
                         <div class="row justify-content-center postSolo">
-                            <div class="col-2">
-                            <img id="userImage" src="${posts[post].photoURL}" height="44" width="44" >
+                        <div class="col-2">
+                        <img id="userImage" src="${posts[post].photoURL}" class="img-user-image float-right" >
+                        </div>
+                        <div class="col-10">
+                        <form action="">
+                            <div class="row divTextArea">
+                                <textarea id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
                             </div>
-                            <div class="col-10">
-                            <form action="">
-                                <div class="row divTextArea">
-                                    <textarea  id="post-${postKeys[index]}" name="Publicacion" class="form-control input-contrast comment-form-textarea">${posts[post].mensaje}</textarea>
+                            <div class="row divTextAreaActions">
+                                <div class="col-6 div-actions">
+                                    <span class="d-inline-block" onclick="updateLikes('${currentUser.uid}','${postKeys[index]}')">
+                                        <img id="userImage" src="img/like32.png" height="32" width="32" class="d-inline-block">
+                                        <div id="like-${postKeys[index]}" class="d-inline-block">${posts[post].likes}</div>
+                                    </span>
                                 </div>
-                                ${ posts[post].uid === currentUser.uid ? `
-                                    <div class="row divTextAreaActions">
-                                        <div class="col-12">
-                                            <input id="btnEditar" type="button" class="btn btn-primary" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
-                                            <input id="btnEliminar" type="button" class="btn btn-primary" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
-                                        </div>
-                                    </div>
-                                ` : '' }
-                            </form>
-                            </div>  
-                            </div>  
+                                <div class="col-6 div-actions">
+                                    ${ posts[post].uid === currentUser.uid ? `
+                                    <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
+                                    <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                                    ` : '' }
+                                </div>
+                            </div>
+                        </form>
+                        </div>  
+                        </div>   
                     `;
                     } 
                   }
