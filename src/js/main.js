@@ -65,7 +65,7 @@ if(btnLogin){
   });
 }
 
-//LOGIN FACEBOOK
+//Inicio de Sesión con FACEBOOK
 const btnFacebook = document.getElementById('btnFacebook');
 if(btnFacebook){
   btnFacebook.addEventListener('click', (e) => {
@@ -84,7 +84,7 @@ if(btnFacebook){
   });
 }
 
-//LOGIN GOOGLE
+//Inicio de Sesión con GOOGLE
 const btnGoogle = document.getElementById('btnGoogle');
 if(btnGoogle){
   btnGoogle.addEventListener('click', (e) => {
@@ -100,7 +100,7 @@ if(btnGoogle){
       });
   });
 }
-//LOGOUT
+//Cerrar Sesión
 const btnLogout = document.getElementById('btnLogout');
 if(btnLogout){
   btnLogout.addEventListener('click', (e) => {
