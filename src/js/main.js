@@ -15,10 +15,24 @@ if (btnRegistro) {
 }
 // LOGIN EMAIL / PASSWORD
 if (btnLogin) {
-  btnLogin.addEventListener('click', (e) => { ;
+  btnLogin.addEventListener('click', (e) => { 
   e.preventDefault();
-  emailValidation(inputEmail.value, inputPassword.value); })
+  if (loginValidation(inputEmail.value, inputPassword.value) === false) {
+     showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
+  }  
+  if (emailValidation(inputEmail.value) === false){
+    alert('El correo electrónico no es valido'); 
+  }
+  if (passwordValidation(inputPassword.value) === false){
+    alert('La contraseña debe ser mayor de 6 caracteres'); 
+  }
+  if(successfulValidation(inputEmail.value, inputPassword.value) === true){
+    login(inputEmail.value, inputPassword.value);
+    return;
+  }
+ });
 }
+
 // FACEBOOK
 if (btnFacebook) {
   btnFacebook.addEventListener('click', (e) => {
@@ -33,7 +47,7 @@ if (btnGoogle) {
     google();
   });
 }
-// Cerrar Sesión
+// CERRAR SESIÓN
 if (btnLogout) {
   btnLogout.addEventListener('click', (e) => {
   e.preventDefault(); 

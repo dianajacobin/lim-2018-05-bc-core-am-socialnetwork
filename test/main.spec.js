@@ -1,32 +1,30 @@
 describe('main', () => {
-  it('debería exponer función loginSign en objeto global', () => {
-    assert.isFunction(loginSign);
+  it('debería exponer función emailValidation en objeto global', () => {
+    assert.isFunction(emailValidation);
     });
-  it('debería exponer función passwordLength en objeto global', () => {
-    assert.isFunction(passwordLength);
+  it('debería exponer función registroValidation en objeto global', () => {
+    assert.isFunction(registroValidation);
     });
-describe('loginSign(email)', () => {
-  it('debería retornar true para rosemarie61@gmail.com', () => {
-    assert.equal(validateEmail('rosemarie61@gmail.com'), true);
+describe('emailValidation', () => {
+  it('debería retornar true para rosemarie61@gmail.com con password 1234567', () => {
+    assert.equal(emailValidation('rosemarie61@gmail.com',1234567), true);
     })
-  it('debería retornar false para rosemarie61@gmail.com', () => {
-    assert.equal(validateEmail('rosemarie61@gmail.com'), false);
+  it('debería retornar false para diana61@45.21 con pasword 1234567', () => {
+    assert.equal(emailValidation('diana61@45.21',1234567), false);
     })
-  });
-describe('passwordLength', () => {
-  it('deberia devolver true para QWE67yp.', () => {
-    assert.deepEqual(passwordLength('QWE67yp.'), true)
-    })
-  it('deberia devolver false para 6789', () => {
-    assert.deepEqual(passwordLength('6789'), false)
+  it('debería retornar false para email vacio con pasword vacio', () => {
+    assert.equal(emailValidation(' ',''), false);
     })
   });
-describe('passwordRepeatValid', () => {
-  it('deberia devolver true para 6789 y 6789.', () => {
-    assert.deepEqual(passwordRepeatValid('6789.', '6789.'), true)
-    })
-  it('deberia devolver false para QWE67yp y 6789', () => {
-    assert.deepEqual(passwordRepeatValid('QWE67yp.', '6789'), false)
-    })
-  });
+  describe('registroValidation', () => {
+    it('debería retornar true para rosemarie61@gmail.com con password 1234567', () => {
+      assert.equal(registroValidation('rosemarie61@gmail.com',1234567), true);
+      })
+    it('debería retornar false para diana61@45.21 con pasword 1234567', () => {
+      assert.equal(registroValidation('diana61@45.21',1234567), false);
+      })
+    it('debería retornar false para email vacio con pasword vacio', () => {
+      assert.equal(registroValidation(' ',''), false);
+      })
+    });
 });

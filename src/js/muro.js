@@ -2,7 +2,7 @@ let currentUser = {};
 window.onload = () => {
   verificateUserAuth();
 }
-//Verificacion de autenticacion de usuario
+//VERIFICACION DE AUTENTICACION DEL USUARIO
 const verificateUserAuth = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -24,7 +24,7 @@ const verificateUserAuth = () => {
     }
   });
 };
-//Compartir
+//COMPARTIR
 const btnSave = document.getElementById("btnSave");
 if (btnSave) {
   btnSave.addEventListener('click', () => {
@@ -39,7 +39,7 @@ if (btnSave) {
     post.value = '';
   });
 }
-//creación de nuevo post
+// BASE DE DATOS DE CREACION DE UN NUEVO POST
 const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
   const postData = {
     uid: uid,
@@ -56,7 +56,7 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
   firebase.database().ref().update(updates);
   listAllPost();
 }
-//creación de nuevo post
+// EDITAR
 const editar = (userUid, postUid) => {
   if (confirm('¿Estas Seguro de Editar tu publicación?')) {
     document.getElementById('post-' + postUid).removeAttribute('disabled');
@@ -66,7 +66,7 @@ const editar = (userUid, postUid) => {
     alert('Se procedió a cancelar la edicion');
   }
 }
-// guardar post editado
+// GUARDAR
 const saveEditPost = (userUid, postUid) => {
   let updates = {};
   updates['/posts/' + postUid + "/mensaje"] = document.getElementById('post-' + postUid).value;
@@ -74,7 +74,7 @@ const saveEditPost = (userUid, postUid) => {
   firebase.database().ref().update(updates);
   listAllPost();
 }
-//Likes
+// LIKES
 const updateLikes = (userUid, postUid) => {
   let like = parseInt(document.getElementById('like-' + postUid).innerHTML);
   let likeUpdate = like + 1;
@@ -84,7 +84,7 @@ const updateLikes = (userUid, postUid) => {
   firebase.database().ref().update(updates);
   listAllPost();
 }
-//eliminar
+// ELIMINAR
 const eliminar = (userUid, postUid) => {
   if (confirm('¿Estas Seguro de Eliminar tu publicación?')) {
     firebase.database().ref().child('/posts/' + postUid).remove();
@@ -94,7 +94,7 @@ const eliminar = (userUid, postUid) => {
   alert('Se procedió a cancelar la eliminación');
   }
 }
-//imprimir publicaciones
+// IMPRIMIR PUBLICACIONES
 const listAllPost = () => {
   let data = '';
   let postRef = firebase.database().ref('posts/');
