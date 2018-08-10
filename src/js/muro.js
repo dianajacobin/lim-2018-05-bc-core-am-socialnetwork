@@ -63,14 +63,13 @@ const editar = (userUid, postUid) => {
     document.getElementById('post-' + postUid).removeAttribute('disabled');
 
   } else {
-    console.log('Se procedió a cancelar la edicion');
+    alert('Se procedió a cancelar la edicion');
   }
   document.getElementById('btnSaveEditPost').removeAttribute('hidden');
   document.getElementById('btnEditar').style.display = 'none';
 }
 // guardar post editado
 const saveEditPost = (userUid, postUid) => {
-  console.log(userUid);
   let updates = {};
   updates['/posts/' + postUid + "/mensaje"] = document.getElementById('post-' + postUid).value;
   updates['/user-posts/' + userUid + '/' + postUid + "/mensaje"] = document.getElementById('post-' + postUid).value;
@@ -94,7 +93,7 @@ const eliminar = (userUid, postUid) => {
     firebase.database().ref().child('/user-posts/' + userUid + '/' + postUid).remove();
     listAllPost();
   } else {
-    console.log('Se procedió a cancelar la eliminación');
+  alert('Se procedió a cancelar la eliminación');
   }
 }
 //imprimir publicaciones
