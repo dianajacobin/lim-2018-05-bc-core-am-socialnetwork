@@ -1,4 +1,4 @@
-describe('validation', () => {
+describe('main', () => {
   it('debería exponer función loginSign en objeto global', () => {
     assert.isFunction(loginSign);
     });

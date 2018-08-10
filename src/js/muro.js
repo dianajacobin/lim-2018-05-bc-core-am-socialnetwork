@@ -1,4 +1,3 @@
-
 let currentUser = {};
 window.onload = () => {
   verificateUserAuth();
@@ -25,7 +24,7 @@ const verificateUserAuth = () => {
     }
   });
 };
-//compartir
+//Compartir
 const btnSave = document.getElementById("btnSave");
 if (btnSave) {
   btnSave.addEventListener('click', () => {
@@ -61,12 +60,11 @@ const writeNewPost = (uid, displayName, photoURL, mensaje, isPublic, likes) => {
 const editar = (userUid, postUid) => {
   if (confirm('¿Estas Seguro de Editar tu publicación?')) {
     document.getElementById('post-' + postUid).removeAttribute('disabled');
-
+    document.getElementById('btnSaveEditPost-'+ postUid).removeAttribute('hidden');
+    document.getElementById('btnEditar-' + postUid).style.display = 'none';
   } else {
     alert('Se procedió a cancelar la edicion');
   }
-  document.getElementById('btnSaveEditPost').removeAttribute('hidden');
-  document.getElementById('btnEditar').style.display = 'none';
 }
 // guardar post editado
 const saveEditPost = (userUid, postUid) => {
@@ -129,8 +127,8 @@ const listAllPost = () => {
                         <div class="col-6 div-actions">
                             ${ posts[post].uid === currentUser.uid ? `
                             <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
-                            <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
-                            <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
+                            <input id="btnEditar-${postKeys[index]}" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                            <input id="btnSaveEditPost-${postKeys[index]}" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
                             ` : ''}
                         </div>
                     </div>
@@ -138,7 +136,6 @@ const listAllPost = () => {
                 </div>  
                 </div>   
                     `;
-
         } else {
           if (posts[post].uid === user) {
             data += `
@@ -161,8 +158,8 @@ const listAllPost = () => {
                                 <div class="col-6 div-actions">
                                     ${ posts[post].uid === currentUser.uid ? `
                                     <input id="btnEliminar" type="button" class="float-right btn btn-primary button-action-eliminar" value="Eliminar" onClick="eliminar('${currentUser.uid}','${postKeys[index]}')">
-                                    <input id="btnEditar" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
-                                    <input id="btnSaveEditPost" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
+                                    <input id="btnEditar-${postKeys[index]}" type="button" class="float-right btn btn-primary button-action-editar" value="Editar" onClick="editar('${currentUser.uid}','${postKeys[index]}')">
+                                    <input id="btnSaveEditPost-${postKeys[index]}" hidden type="button" class="float-right btn btn-primary button-action-guardar" value="Guardar" onClick="saveEditPost('${currentUser.uid}','${postKeys[index]}')">
                                     ` : ''}
                                 </div>
                             </div>
