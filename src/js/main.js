@@ -10,14 +10,23 @@ const btnLogout = document.getElementById('btnLogout');
 if (btnRegistro) {
   btnRegistro.addEventListener('click', (e) => {
   e.preventDefault();
-  registroValidation(inputEmail.value, inputPassword.value);
+  if (registroValidation(inputEmail.value, inputPassword.value)===false){
+    showMessage('dangerMessage', 'Email y password incorrectos');
+  }
+  if (registroValidation(inputEmail.value, inputPassword.value)===true){
+  registro(inputEmail.value,inputPassword.value);}
   });
 }
 // LOGIN EMAIL / PASSWORD
 if (btnLogin) {
   btnLogin.addEventListener('click', (e) => { 
   e.preventDefault();
-  emailValidation(inputEmail.value, inputPassword.value); })
+  if (emailValidation(inputEmail.value, inputPassword.value)===false){
+    showMessage('dangerMessage', 'Debe de ingresar email y contraseña');
+  }
+  if (emailValidation(inputEmail.value, inputPassword.value)===true){
+      login(inputEmail.value,inputPassword.value);}
+   })
 }
 // FACEBOOK
 if (btnFacebook) {
